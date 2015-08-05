@@ -1,6 +1,7 @@
 package by.epam.project.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -9,7 +10,7 @@ public class Employee {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "FIRSTNAME")
@@ -24,10 +25,25 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "POSITIONID")
-    private Integer positionID;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="POSITION",
+    joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")})
+    Position position;
 
-    @OneToOne()
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="MEMBER",
+            joinColumns = {@JoinColumn(name="EMPLOYEEID", referencedColumnName="ID")},
+            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="EMPLOYEEID")}
+    )
+    private Set<Role> roles;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="MEMBER",
+            joinColumns = {@JoinColumn(name="EMPLOYEEID", referencedColumnName="ID")},
+            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="EMPLOYEEID")}
+    )
+    private Set<Project> projects;
+
     public Integer getId() {
         return id;
     }
@@ -68,11 +84,11 @@ public class Employee {
         this.password = password;
     }
 
-    public Integer getPositionID() {
-        return positionID;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setPositionID(Integer positionID) {
-        this.positionID = positionID;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

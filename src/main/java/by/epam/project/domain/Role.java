@@ -2,9 +2,10 @@ package by.epam.project.domain;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "POSITION")
-public class Position {
+@Table(name = "ROLE")
+public class Role {
 
     @Id
     @Column(name = "ID")
@@ -14,7 +15,11 @@ public class Position {
     @Column(name = "NAME")
     private String name;
 
-    @OneToOne(mappedBy = "EMPLOYEE")
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinTable(name="MEMBER",
+            joinColumns = {@JoinColumn(name="ROLEID", referencedColumnName="ID")},
+            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="ROLEID")}
+    )
     private Employee employee;
 
     public Integer getId() {

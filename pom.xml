@@ -10,6 +10,9 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <persistence.version>1.0.2</persistence.version>
+        <hibernate-core.version>3.6.4.Final</hibernate-core.version>
+        <hibernate-commons.version>4.0.4.Final</hibernate-commons.version>
+        <hibernate-validator>4.1.0.Final</hibernate-validator>
     </properties>
 
     <dependencies>
@@ -61,6 +64,27 @@
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
             <version>${persistence.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>${hibernate-commons.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.1.1.RELEASE</version>
         </dependency>
     </dependencies>
 
