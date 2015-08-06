@@ -25,6 +25,9 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
+    @Column(name = "EMPLOYEEID")
+    private Integer positionId;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name="POSITION",
     joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")})

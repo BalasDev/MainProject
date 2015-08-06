@@ -1,7 +1,16 @@
 package by.epam.project.web;
 
-/**
- * Created by vorozhb on 06.08.2015.
- */
+import by.epam.project.service.ServiceEmployee;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
 public class LoginController {
+
+ ServiceEmployee serviceEmployee;
+
+    @RequestMapping("/")
+    public String sing() {
+        return "singIn";
+    }
 }

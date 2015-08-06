@@ -14,6 +14,9 @@ public class Position {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "NAME")
+    private String name;
+
     @OneToOne(mappedBy = "EMPLOYEE")
     private Employee employee;
 
