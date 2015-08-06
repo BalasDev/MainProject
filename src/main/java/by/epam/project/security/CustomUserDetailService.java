@@ -35,10 +35,12 @@ public class CustomUserDetailService implements UserDetailsService{
 
             // Build user's authorities
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            if (employee.getLogin()=="admin") authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            if (employee.getLogin().equals("admin")) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            }
             else
                 authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-
+            System.out.println(employee.getLogin());
             return authorities;
 
         }

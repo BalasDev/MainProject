@@ -15,7 +15,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
                      login-page="/login"/>
         <logout logout-url="/logout" logout-success-url="/"/>
 
-        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
+
 
     </http>
 
