@@ -13,6 +13,9 @@
         <hibernate-core.version>3.6.4.Final</hibernate-core.version>
         <hibernate-commons.version>4.0.4.Final</hibernate-commons.version>
         <hibernate-validator>4.1.0.Final</hibernate-validator>
+        <mysql.version>5.1.6</mysql.version>
+        <javassist.version>3.12.1.GA</javassist.version>
+        <validation>1.0.0.GA</validation>
     </properties>
 
     <dependencies>
@@ -53,7 +56,16 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -75,6 +87,24 @@
             <groupId>org.hibernate.common</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>${hibernate-commons.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
+
+        <!--  JSR 303 with Hibernate Validator -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
