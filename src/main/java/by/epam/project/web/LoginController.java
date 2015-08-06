@@ -1,16 +1,16 @@
 package by.epam.project.web;
 
-import by.epam.project.service.ServiceEmployee;
+import by.epam.project.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
 
- ServiceEmployee serviceEmployee;
+ EmployeeService employeeService;
 
     @RequestMapping("/")
     public String sing() {
-        return "singIn";
+        return "login";
     }
 }

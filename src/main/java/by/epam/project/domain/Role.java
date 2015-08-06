@@ -3,11 +3,11 @@ package by.epam.project.domain;
 import javax.persistence.*;
 
 
-@Entity
-@Table(name = "ROLE")
+//@Entity
+//@Table(name = "ROLE")
 public class Role {
 
-    @Id
+    /*@Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -44,5 +44,5 @@ public class Role {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
+    }*/
 }

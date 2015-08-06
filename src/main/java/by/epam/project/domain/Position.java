@@ -15,8 +15,8 @@ public class Position {
     private String name;
 
 
-    @OneToOne(mappedBy = "EMPLOYEE")
-    private Employee employee;
+   /* @OneToOne(mappedBy = "EMPLOYEE")
+    private Employee employee;*/
 
     public Integer getId() {
         return id;
@@ -34,11 +34,11 @@ public class Position {
         this.name = name;
     }
 
-    public Employee getEmployee() {
+   /* public Employee getEmployee() {
         return employee;
     }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
+    }*/
 }

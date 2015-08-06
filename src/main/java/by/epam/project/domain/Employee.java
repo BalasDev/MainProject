@@ -28,25 +28,26 @@ public class Employee {
     @Column(name = "POSITIONID")
     private Integer positionId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+   /* @OneToOne
     @JoinTable(name="POSITION",
-    joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")})
+    joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")},
+    inverseJoinColumns = {@JoinColumn(name = "POSITIONID", referencedColumnName = "ID")})
+    Position position;*/
 
-    Position position;
+    /*
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinTable(name = "MEMBER",
+                joinColumns = {@JoinColumn(name = "EMPLOYEEID", referencedColumnName = "ID")},
+                inverseJoinColumns = {@JoinColumn(name = "ID", referencedColumnName = "EMPLOYEEID")}
+        )
+        private Set<Role> roles;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="MEMBER",
-            joinColumns = {@JoinColumn(name="EMPLOYEEID", referencedColumnName="ID")},
-            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="EMPLOYEEID")}
-    )
-    private Set<Role> roles;
-
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="MEMBER",
-            joinColumns = {@JoinColumn(name="EMPLOYEEID", referencedColumnName="ID")},
-            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="EMPLOYEEID")}
-    )
-    private Set<Project> projects;
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinTable(name = "MEMBER",
+                joinColumns = {@JoinColumn(name = "EMPLOYEEID", referencedColumnName = "ID")},
+                inverseJoinColumns = {@JoinColumn(name = "ID", referencedColumnName = "EMPLOYEEID")}
+        )
+        private Set<Project> projects;*/
 
     public Integer getId() {
         return id;
@@ -88,11 +89,19 @@ public class Employee {
         this.password = password;
     }
 
-    public Position getPosition() {
+    public Integer getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Integer positionId) {
+        this.positionId = positionId;
+    }
+
+   /* public Position getPosition() {
         return position;
     }
 
     public void setPosition(Position position) {
         this.position = position;
-    }
+    }*/
 }

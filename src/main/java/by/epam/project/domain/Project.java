@@ -3,10 +3,10 @@ package by.epam.project.domain;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "PROJECT")
+//@Entity
+//@Table(name = "PROJECT")
 public class Project {
-    @Id
+   /* @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -22,5 +22,5 @@ public class Project {
             joinColumns = {@JoinColumn(name="PROJECTID", referencedColumnName="ID")},
             inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="PROJECTID")}
     )
-    private Employee employee;
+    private Employee employee;*/
 }
