@@ -31,6 +31,7 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name="POSITION",
     joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")})
+
     Position position;
 
     @OneToMany(cascade=CascadeType.ALL)
