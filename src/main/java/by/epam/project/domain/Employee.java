@@ -25,7 +25,7 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "EMPLOYEEID")
+    @Column(name = "POSITIONID")
     private Integer positionId;
 
     @OneToOne(cascade = CascadeType.ALL)
