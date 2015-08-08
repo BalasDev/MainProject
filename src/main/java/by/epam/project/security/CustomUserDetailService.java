@@ -40,7 +40,7 @@ public class CustomUserDetailService implements UserDetailsService{
             }
             else
                 authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            System.out.println(employee.getLogin());
+            System.out.println(employee.getPosition().getName());
             return authorities;
 
         }

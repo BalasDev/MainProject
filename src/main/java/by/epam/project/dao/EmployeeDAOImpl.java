@@ -18,8 +18,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     public Employee getEmployee(String login) {
         List<Employee> employees = new ArrayList<Employee>();
-        Query query = sessionFactory.getCurrentSession().createQuery("from Employee e where e.login =:login ");
-        query.setParameter("login", login);
+        Query query = sessionFactory.getCurrentSession().createQuery("from Employee ");
+//        query.setParameter("login", login);
         employees = query.list();
         if (employees.size() > 0)
             return employees.get(0);

@@ -1,5 +1,9 @@
 package by.epam.project.domain;
 
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,8 +29,8 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "POSITIONID")
-    private Integer positionId;
+   // @Column(name = "POSITIONID")
+    //private Integer positionId;
 
    /* @OneToOne
     @JoinTable(name="POSITION",
@@ -48,6 +52,13 @@ public class Employee {
                 inverseJoinColumns = {@JoinColumn(name = "ID", referencedColumnName = "EMPLOYEEID")}
         )
         private Set<Project> projects;*/
+    @OneToOne()
+    //@JoinColumn(name = "POSITIONID",referencedColumnName = "ID")
+    @JoinColumn(name = "ID")
+    @Fetch(value = FetchMode. SELECT)
+    private Position position;
+
+
 
     public Integer getId() {
         return id;
@@ -89,19 +100,14 @@ public class Employee {
         this.password = password;
     }
 
-    public Integer getPositionId() {
-        return positionId;
-    }
 
-    public void setPositionId(Integer positionId) {
-        this.positionId = positionId;
-    }
 
-   /* public Position getPosition() {
+    public Position getPosition() {
         return position;
     }
 
     public void setPosition(Position position) {
         this.position = position;
-    }*/
+
+    }
 }

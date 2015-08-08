@@ -15,7 +15,7 @@ public class Position {
     private String name;
 
 
-   /* @OneToOne(mappedBy = "EMPLOYEE")
+   /* @OneToOne(mappedBy = "employee")
     private Employee employee;*/
 
     public Integer getId() {
