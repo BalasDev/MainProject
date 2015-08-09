@@ -29,36 +29,9 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
-   // @Column(name = "POSITIONID")
-    //private Integer positionId;
-
-   /* @OneToOne
-    @JoinTable(name="POSITION",
-    joinColumns = {@JoinColumn(name="ID", referencedColumnName="POSITIONID")},
-    inverseJoinColumns = {@JoinColumn(name = "POSITIONID", referencedColumnName = "ID")})
-    Position position;*/
-
-    /*
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinTable(name = "MEMBER",
-                joinColumns = {@JoinColumn(name = "EMPLOYEEID", referencedColumnName = "ID")},
-                inverseJoinColumns = {@JoinColumn(name = "ID", referencedColumnName = "EMPLOYEEID")}
-        )
-        private Set<Role> roles;
-
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinTable(name = "MEMBER",
-                joinColumns = {@JoinColumn(name = "EMPLOYEEID", referencedColumnName = "ID")},
-                inverseJoinColumns = {@JoinColumn(name = "ID", referencedColumnName = "EMPLOYEEID")}
-        )
-        private Set<Project> projects;*/
-    @OneToOne()
-    //@JoinColumn(name = "POSITIONID",referencedColumnName = "ID")
-    @JoinColumn(name = "ID")
-    @Fetch(value = FetchMode. SELECT)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="POSITIONID")
     private Position position;
-
-
 
     public Integer getId() {
         return id;

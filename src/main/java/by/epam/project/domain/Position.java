@@ -14,10 +14,6 @@ public class Position {
     @Column(name = "NAME")
     private String name;
 
-
-   /* @OneToOne(mappedBy = "employee")
-    private Employee employee;*/
-
     public Integer getId() {
         return id;
     }
@@ -34,11 +30,4 @@ public class Position {
         this.name = name;
     }
 
-   /* public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }*/
 }
