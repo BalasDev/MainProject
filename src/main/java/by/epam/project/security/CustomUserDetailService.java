@@ -38,13 +38,13 @@ public class CustomUserDetailService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         } else
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        System.out.println(employee.getPosition().getName());
+       // System.out.println(employee.getPosition().getName());
 
 
         for (Project project : employee.getProjects()) {
             System.out.println(project.getName());
             for (Role role: project.getRoles()){
-                System.out.println(role.getName());
+                System.out.println(employee.getPosition().getName()+" working on the project "+project.getName()+" into role "+role.getName());
             }
         }
 
