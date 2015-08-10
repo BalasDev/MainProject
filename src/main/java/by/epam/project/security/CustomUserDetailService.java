@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //@Service("customUserDetailService")
-public class CustomUserDetailService implements UserDetailsService{
+public class CustomUserDetailService implements UserDetailsService {
 
     @Autowired
     private EmployeeService employeeService;
@@ -24,25 +24,21 @@ public class CustomUserDetailService implements UserDetailsService{
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-
         Employee employee = employeeService.getEmployee(login);
-
-
-        return new User (employee.getLogin(),employee.getPassword(),true,true,true,true,buildUserAuthority(employee));
+        return new User(employee.getLogin(), employee.getPassword(), true, true, true, true, buildUserAuthority(employee));
     }
 
-        private List<GrantedAuthority> buildUserAuthority(Employee employee) {
+    private List<GrantedAuthority> buildUserAuthority(Employee employee) {
 
-            // Build user's authorities
-            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            if (employee.getLogin().equals("admin")) {
-                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            }
-            else
-                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            System.out.println(employee.getPosition().getName());
-            return authorities;
+        // Build user's authorities
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        if (employee.getLogin().equals("admin")) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        } else
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        System.out.println(employee.getPosition().getName());
+        return authorities;
 
-        }
+    }
 
 }
