@@ -1,6 +1,7 @@
 package by.epam.project.security;
 
 import by.epam.project.domain.Employee;
+import by.epam.project.domain.Project;
 import by.epam.project.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -37,6 +38,12 @@ public class CustomUserDetailService implements UserDetailsService {
         } else
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         System.out.println(employee.getPosition().getName());
+
+
+        for (Project item : employee.getProjects()) {
+            System.out.println(item.getName());
+        }
+
         return authorities;
 
     }

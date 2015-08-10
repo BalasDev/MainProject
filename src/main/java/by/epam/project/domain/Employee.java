@@ -5,6 +5,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,6 +33,10 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="POSITIONID")
     private Position position;
+
+    @ManyToMany(mappedBy = "employees")
+    private List<Project> projects;
+
 
     public Integer getId() {
         return id;
@@ -82,5 +87,13 @@ public class Employee {
     public void setPosition(Position position) {
         this.position = position;
 
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 }

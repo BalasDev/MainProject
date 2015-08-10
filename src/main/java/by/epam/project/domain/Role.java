@@ -15,13 +15,6 @@ public class Role {
     @Column(name = "NAME")
     private String name;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinTable(name="MEMBER",
-            joinColumns = {@JoinColumn(name="ROLEID", referencedColumnName="ID")},
-            inverseJoinColumns = {@JoinColumn(name="ID", referencedColumnName="ROLEID")}
-    )
-    private Employee employee;
-
     public Integer getId() {
         return id;
     }
@@ -38,11 +31,5 @@ public class Role {
         this.name = name;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }
