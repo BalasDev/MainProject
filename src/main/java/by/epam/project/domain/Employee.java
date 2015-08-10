@@ -29,7 +29,7 @@ public class Employee {
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="POSITIONID")
     private Position position;
 
