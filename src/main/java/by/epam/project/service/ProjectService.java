@@ -1,11 +1,9 @@
-package by.epam.project.dao;
+package by.epam.project.service;
 
 
 import by.epam.project.domain.Project;
 
-public interface ProjectDAO {
+public interface ProjectService {
 
     public void addProject(Project project);
-
-
 }

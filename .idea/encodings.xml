@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/by/epam/project/domain/Employee.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/by/epam/project/domain/Project.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/by/epam/project/service/ProjectServiceImpl.java" charset="UTF-8" />
   </component>
 </project>

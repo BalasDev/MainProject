@@ -11,6 +11,7 @@ public class ProjectDAOImpl implements ProjectDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+
     public void addProject(Project project) {
         sessionFactory.getCurrentSession().save(project);
     }
