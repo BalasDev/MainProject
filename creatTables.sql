@@ -1,4 +1,10 @@
-CREATE TABLE EMPLOYEE (  
+create USER manager@localhost identified BY 'manager';
+GRANT usage ON *.* TO manager@localhost identified BY 'manager';
+CREATE DATABASE IF NOT EXISTS projectmanagment;
+GRANT ALL privileges ON projectmanagment.* TO manager@localhost;
+USE projectmanagment;
+
+CREATE TABLE EMPLOYEE (
   ID int(6) NOT NULL AUTO_INCREMENT,  
   FIRSTNAME varchar(255) NOT NULL,
   LASTNAME varchar(255) NOT NULL,  

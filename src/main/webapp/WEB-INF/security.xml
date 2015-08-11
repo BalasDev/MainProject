@@ -8,15 +8,17 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <http auto-config="true" use-expressions="true">
+    <http auto-config="true" use-expressions="false">
+        <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_USER"></intercept-url>
 
-        <form-login default-target-url="/ura"
+        <form-login default-target-url="/"
                     authentication-failure-url="/logError"
                     login-page="/login"/>
         <logout logout-url="/logout" logout-success-url="/"/>
 
         <remember-me key="devjavkey" />
     </http>
+
 
     <global-method-security secured-annotations="enabled"/>
     <secururity:annotation-config/>
