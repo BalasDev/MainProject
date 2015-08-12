@@ -16,10 +16,20 @@
 </head>
 <body>
 
-<form:form method="post" action="addproject" commandName="personal">
-  <jsp:include page="personData.jsp"/>
+<form:form method="post" action="createproject" commandName="project">
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td><form:input path="name"/> <%--<form:errors path="lastName" cssClass="error"/>--%></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td><form:input path="description"/> <%--<form:errors path="firstName" cssClass="error"/>--%></td>
+    </tr>
+    <tr>
   <br>
-  <button class="btn btn-primary" type="submit">Добавить</button>
+  <button class="btn btn-primary" type="submit">Create</button>
 </form:form>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

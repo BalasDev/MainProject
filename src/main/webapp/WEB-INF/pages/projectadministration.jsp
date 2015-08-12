@@ -34,7 +34,6 @@
     <div style="cursor: pointer" data-toggle="modal"
     data-target="#info_${project.id}">${project.name}</div>
     </td>
-    <td>${project.name}</td>
     <td>${project.description}</td>
 
 
@@ -76,7 +75,9 @@
 
       </c:forEach>
   </table>
-
+      <div class="navbar-form navbar-left">
+          <a href="<c:url value="/tocreateproject" />" class="btn btn-primary form-control">Create project</a>
+      </div>
   </div>
 
 

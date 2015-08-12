@@ -1,10 +1,13 @@
 package by.epam.project.web;
 
+import by.epam.project.domain.Project;
 import by.epam.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
@@ -24,7 +27,22 @@ public class ProjectController {
     @RequestMapping("/tocreateproject")
     public String toCreateProj(Map<String, Object> map) {
 
-       // map.put("listMember",projectService.listMember());
+        map.put("project", new Project());
         return "createproject";
     }
+
+    @RequestMapping("/createproject")
+    public String createProj(@Valid Project project,
+                             BindingResult result) {
+        if (result.hasErrors()) {
+            return "/createproject";
+        }
+
+        projectService.addProject(project);
+        return "redirect:/toprojectadministration";
+
+
+
+    }
+
 }
