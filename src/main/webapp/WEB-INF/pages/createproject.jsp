@@ -27,10 +27,12 @@
         <td>Description</td>
         <td><form:input path="description"/> <%--<form:errors path="firstName" cssClass="error"/>--%></td>
     </tr>
-    <tr>
+
+</table>
   <br>
-  <button class="btn btn-primary" type="submit">Create</button>
+
 </form:form>
+        <button class="btn btn-primary" type="submit">Create</button>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webres/jquery/jquery.min.js"></script>
