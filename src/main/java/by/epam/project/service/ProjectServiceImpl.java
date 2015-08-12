@@ -25,4 +25,9 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Member> listMember() {
         return projectDAO.listMember();
     }
+
+    @Transactional
+    public List<Project> listProject() {
+        return projectDAO.listProject();
+    }
 }

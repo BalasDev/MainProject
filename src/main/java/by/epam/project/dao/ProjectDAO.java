@@ -12,5 +12,7 @@ public interface ProjectDAO {
 
     public List<Member> listMember();
 
+    public List<Project> listProject();
+
 
 }

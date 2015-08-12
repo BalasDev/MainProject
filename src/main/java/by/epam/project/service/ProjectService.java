@@ -11,4 +11,6 @@ public interface ProjectService {
     public void addProject(Project project);
 
     public List<Member> listMember();
+
+    public List<Project> listProject();
 }

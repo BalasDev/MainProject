@@ -23,4 +23,9 @@ public class ProjectDAOImpl implements ProjectDAO {
     public List<Member> listMember() {
         return sessionFactory.getCurrentSession().createQuery("from Member").list();
     }
+
+
+    public List<Project> listProject() {
+        return sessionFactory.getCurrentSession().createQuery("from Project").list();
+    }
 }

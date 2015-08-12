@@ -14,10 +14,17 @@ public class ProjectController {
     ProjectService projectService;
 
 
-    @RequestMapping("/tocreateproject")
-    public String home(Map<String, Object> map) {
+    @RequestMapping("/toprojectadministration")
+    public String projectAdmin(Map<String, Object> map) {
 
-        map.put("listMember",projectService.listMember());
+         map.put("listProject",projectService.listProject());
+        return "projectadministration";
+    }
+
+    @RequestMapping("/tocreateproject")
+    public String toCreateProj(Map<String, Object> map) {
+
+       // map.put("listMember",projectService.listMember());
         return "createproject";
     }
 }
