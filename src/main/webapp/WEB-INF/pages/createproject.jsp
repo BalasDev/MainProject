@@ -12,10 +12,14 @@
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
   <link href="webres/css/style.css" rel="stylesheet">
- <H1>Create project</H1>
+   <link href="webres/css/input.css" rel="stylesheet">
+   <link href="webres/css/errors.css" rel="stylesheet">
+
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <H1>Create project</H1>
 <form:form method="post" action="createproject" commandName="project">
 
 <table>
@@ -33,7 +37,8 @@
 
 </form:form>
         <button class="btn btn-primary" type="submit">Create</button>
-
+</div>
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webres/jquery/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

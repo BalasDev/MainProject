@@ -5,7 +5,9 @@ import by.epam.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -41,8 +43,17 @@ public class ProjectController {
         projectService.addProject(project);
         return "redirect:/toprojectadministration";
 
-
-
     }
+
+    @RequestMapping(value = "/openproject/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String deleteContact(@PathVariable("id") Integer id) {
+
+        // memberlist personalService.deletePersonal(id);
+       return "redirect:/";
+    }
+
+
+
+
 
 }

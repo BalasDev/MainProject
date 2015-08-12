@@ -31,8 +31,8 @@
   <c:forEach items="${listProject}" var="project">
     <tr>
     <td>
-    <div style="cursor: pointer" data-toggle="modal"
-    data-target="#info_${project.id}">${project.name}</div>
+    <div style="cursor: pointer"
+         onclick="location.href='<%=request.getContextPath()%>/openproject/${project.id}'">${project.name}</div>
     </td>
     <td>${project.description}</td>
 
