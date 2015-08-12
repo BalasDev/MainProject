@@ -1,8 +1,6 @@
 package by.epam.project.security;
 
 import by.epam.project.domain.Employee;
-import by.epam.project.domain.Project;
-import by.epam.project.domain.Role;
 import by.epam.project.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,7 +9,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -38,18 +35,6 @@ public class CustomUserDetailService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         } else
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-       // System.out.println(employee.getPosition().getName());
-
-
-        for (Project project : employee.getProjects()) {
-            System.out.println(project.getName());
-            for (Role role: project.getRoles()){
-                System.out.println(employee.getPosition().getName()+" working on the project "+project.getName()+" into role "+role.getName());
-            }
-        }
-
         return authorities;
-
     }
-
 }
