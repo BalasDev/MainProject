@@ -15,8 +15,8 @@
 </head>
 
 <body>
-<div class="container">
-  <div class="row">
+<div class="containerNbar">
+  <div class="rowNbar">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

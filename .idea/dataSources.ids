@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="d5b26993-9eab-4677-ae6e-60ded6c19260">
+    <database-info product="MySQL" version="5.6.25-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="projectmanagment"/>
+    <table name="activity" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="_DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="DURATION" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="COMMENT" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="MEMBERID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ASSIGMENTID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="activity_ibfk_1" columns="MEMBERID" ref-table="member" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="activity_ibfk_2" columns="ASSIGMENTID" ref-table="assigment" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="activity_ibfk_1" unique="false" columns="MEMBERID"/>
+      <index name="activity_ibfk_2" unique="false" columns="ASSIGMENTID"/>
+    </table>
+    <table name="assigment" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="MEMBERID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TASKID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="assigment_ibfk_1" columns="MEMBERID" ref-table="member" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="assigment_ibfk_2" columns="TASKID" ref-table="task" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="activity_ibfk_2" table="activity" schema="" catalog="projectmanagment" columns="ASSIGMENTID"/>
+      <index name="assigment_ibfk_1" unique="false" columns="MEMBERID"/>
+      <index name="assigment_ibfk_2" unique="false" columns="TASKID"/>
+    </table>
+    <table name="attachment" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SIZE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PROJECTID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TASKID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="attachment_ibfk_1" columns="PROJECTID" ref-table="project" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="attachment_ibfk_2" columns="TASKID" ref-table="task" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="attachment_ibfk_1" unique="false" columns="PROJECTID"/>
+      <index name="attachment_ibfk_2" unique="false" columns="TASKID"/>
+    </table>
+    <table name="employee" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FIRSTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LASTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LOGIN" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="POSITIONID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="employee_ibfk_1" columns="POSITIONID" ref-table="position" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="member_ibfk_2" table="member" schema="" catalog="projectmanagment" columns="EMPLOYEEID"/>
+      <index name="employee_ibfk_1" unique="false" columns="POSITIONID"/>
+    </table>
+    <table name="member" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PROJECTID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EMPLOYEEID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ROLEID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="member_ibfk_1" columns="PROJECTID" ref-table="project" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="member_ibfk_2" columns="EMPLOYEEID" ref-table="employee" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="member_ibfk_3" columns="ROLEID" ref-table="role" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="activity_ibfk_1" table="activity" schema="" catalog="projectmanagment" columns="MEMBERID"/>
+      <exported-key name="assigment_ibfk_1" table="assigment" schema="" catalog="projectmanagment" columns="MEMBERID"/>
+      <index name="member_ibfk_1" unique="false" columns="PROJECTID"/>
+      <index name="member_ibfk_2" unique="false" columns="EMPLOYEEID"/>
+      <index name="member_ibfk_3" unique="false" columns="ROLEID"/>
+    </table>
+    <table name="position" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="employee_ibfk_1" table="employee" schema="" catalog="projectmanagment" columns="POSITIONID"/>
+    </table>
+    <table name="project" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="attachment_ibfk_1" table="attachment" schema="" catalog="projectmanagment" columns="PROJECTID"/>
+      <exported-key name="member_ibfk_1" table="member" schema="" catalog="projectmanagment" columns="PROJECTID"/>
+      <exported-key name="task_ibfk_1" table="task" schema="" catalog="projectmanagment" columns="PROJECTID"/>
+    </table>
+    <table name="role" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="member_ibfk_3" table="member" schema="" catalog="projectmanagment" columns="ROLEID"/>
+    </table>
+    <table name="status" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="task_ibfk_2" table="task" schema="" catalog="projectmanagment" columns="STATUSID"/>
+    </table>
+    <table name="task" schema="" catalog="projectmanagment" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PROJECTID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PSD" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="PDD" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ASD" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="AD" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="STATUSID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="task_ibfk_1" columns="PROJECTID" ref-table="project" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="task_ibfk_2" columns="STATUSID" ref-table="status" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="assigment_ibfk_2" table="assigment" schema="" catalog="projectmanagment" columns="TASKID"/>
+      <exported-key name="attachment_ibfk_2" table="attachment" schema="" catalog="projectmanagment" columns="TASKID"/>
+      <index name="task_ibfk_1" unique="false" columns="PROJECTID"/>
+      <index name="task_ibfk_2" unique="false" columns="STATUSID"/>
+    </table>
+  </data-source>
+</component>
