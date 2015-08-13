@@ -8,7 +8,9 @@
 <jsp:include page="header.jsp"/>
 <div class="container">
   <div class="row">
-    <h1>Project members</h1>
+
+
+    <h1>${projectName}</h1>
 
     <div class="table-responsive">
       <table class="table table-condensed table-hover table-striped table-bordered">
@@ -25,13 +27,14 @@
 
         </tr>
 
-        <c:forEach items="${listMember}" var="member">
+        <c:forEach items="${memberList}" var="member">
         <tr>
-          <td> ${member.getEmployee.getFirstName} </td>
-          <td> ${member.getEmployee.getSecondName} </td>
-          <td> ${member.getEmployee.getLogin} </td>
-          <td> ${member.getRole.getName} </td>
-          <td> ${member.getPosition.getName} </td>
+          <td> ${member.employee.firstName} </td>
+          <td> ${member.employee.lasttName} </td>
+          <td> ${member.employee.login} </td>
+          <td> ${member.employee.position.name} </td>
+          <td> ${member.role.name} </td>
+
 
 
           <td>
@@ -73,7 +76,7 @@
           </c:forEach>
       </table>
       <div class="navbar-form navbar-left">
-        <a href="<c:url value="/tocreateproject" />" class="btn btn-primary form-control">Add member</a>
+        <a href="<c:url value="/toaddmember" />" class="btn btn-primary form-control">Add member</a>
       </div>
     </div>
   </div>
