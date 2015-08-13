@@ -6,7 +6,9 @@
 <link href="webres/css/errors.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
 <jsp:include page="header.jsp"/>
-  <h1>Projects</h1>
+<div class="container">
+    <div class="row">
+<h1>Projects</h1>
 
   <div class="table-responsive">
   <table class="table table-condensed table-hover table-striped table-bordered">
@@ -79,7 +81,8 @@
           <a href="<c:url value="/tocreateproject" />" class="btn btn-primary form-control">Create project</a>
       </div>
   </div>
-
+</div>
+</div>
 
 
 <jsp:include page="footer.jsp"/>

@@ -34,9 +34,9 @@
 
 </table>
   <br>
-
+    <button class="btn btn-primary" type="submit">Create</button>
 </form:form>
-        <button class="btn btn-primary" type="submit">Create</button>
+
 </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
