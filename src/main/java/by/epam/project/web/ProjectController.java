@@ -46,10 +46,11 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/openproject/{id}", produces = "text/html", method = RequestMethod.GET)
-    public String deleteContact(@PathVariable("id") Integer id) {
-
+    public String deleteContact(@PathVariable("id") Integer id,Map<String, Object> map ) {
+        map.put("memberList",projectService.listMember(id));
+        System.out.println(projectService.listMember(id).get(0).getEmployee().getFirstName());
         // memberlist personalService.deletePersonal(id);
-       return "redirect:/";
+       return "projectmembers";
     }
 
 

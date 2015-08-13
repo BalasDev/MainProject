@@ -10,7 +10,7 @@ public interface ProjectService {
 
     public void addProject(Project project);
 
-    public List<Member> listMember();
+    public List<Member> listMember(Integer id);
 
     public List<Project> listProject();
 }

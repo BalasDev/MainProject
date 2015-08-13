@@ -22,8 +22,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Transactional
-    public List<Member> listMember() {
-        return projectDAO.listMember();
+    public List<Member> listMember(Integer id) {
+        return projectDAO.listMember(id);
     }
 
     @Transactional
