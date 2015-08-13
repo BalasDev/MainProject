@@ -6,26 +6,130 @@
 <jsp:include page="header.jsp"/>
 <div class="container-fluid">
     <div class="row" style="padding-left: 40px">
-        <h1>System Dashboard</h1>
+        <h3>System Dashboard</h3>
     </div>
-    <div class="row"></div>
-    <div class="col-lg-6">
-        <div class="jumbotron panelSing scroll" style="height: 75%">
-           <div class="row">
-               <div class="navbar navbar-inverse">
-                   <div class="container">
-                       <div class="navbar-header">
-                           <p  class="navbar-collapse" style="color: #FFFFFF">Activity system</p>
-                       </div>
-                   </div>
-               </div>
-           </div>
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="frame scroll" style="height: 75%">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="navbar navbar-inverse navbar-static-top" style="height: 50px">
+                            <div class="navbar-header">
+                                <p class="navbar-brand" style="color: #FFFFFF; font-size: larger">Activity system</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rowStyle">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+                        <tr>
+                            <td>gfgfg</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 
+        <div class="col-lg-6">
+            <div class="frame scroll" style="height: 75%">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="navbar navbar-inverse navbar-static-top" style="height: 50px">
+                            <div class="navbar-header">
+                                <p class="navbar-brand" style="color: #FFFFFF; font-size: larger">Assigned to ME</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rowStyle">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Key</th>
+                            <th class="text-center">Summary</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Summary</td>
+                        </tr>
 
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
 
     </div>
+
+
 </div>
 <jsp:include page="footer.jsp"/>
