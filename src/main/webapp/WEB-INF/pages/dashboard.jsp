@@ -24,45 +24,13 @@
                 <div class="rowStyle">
                     <table class="table">
                         <tbody>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
-                        <tr>
-                            <td>gfgfg</td>
-                        </tr>
+
+<c:forEach items="${listActivity}" var="activity">
+    <tr>
+        <td>${activity.comment} date ${activity.date}</td>
+        <td>${activity.member.employee.firstName} </td>
+    </tr>
+</c:forEach>
 
                         </tbody>
                     </table>

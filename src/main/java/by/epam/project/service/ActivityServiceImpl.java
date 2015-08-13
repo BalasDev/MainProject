@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ActivityServiceImpl implements ActivityService {
     @Autowired
@@ -15,4 +17,10 @@ public class ActivityServiceImpl implements ActivityService {
     public Activity getActivity(Integer id) {
         return activityDAO.getActivity(id);
     }
+
+    @Transactional
+    public List<Activity> listActivity(){
+        return activityDAO.listActivity();
+    }
+
 }

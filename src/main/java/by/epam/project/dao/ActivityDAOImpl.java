@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ActivityDAOImpl implements ActivityDAO {
 
@@ -14,5 +16,9 @@ public class ActivityDAOImpl implements ActivityDAO {
     public Activity getActivity(Integer id) {
         Activity activity = (Activity) sessionFactory.openSession().get(Activity.class, id);
         return activity;
+    }
+
+    public List<Activity> listActivity(){
+        return sessionFactory.getCurrentSession().createQuery("from Activity").list();
     }
 }
