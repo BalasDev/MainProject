@@ -12,16 +12,33 @@
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
   <link href="webres/css/style.css" rel="stylesheet">
- <H1>Create project</H1>
+   <link href="webres/css/input.css" rel="stylesheet">
+   <link href="webres/css/errors.css" rel="stylesheet">
+
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <H1>Create project</H1>
+<form:form method="post" action="createproject" commandName="project">
 
-<form:form method="post" action="addproject" commandName="personal">
-  <jsp:include page="personData.jsp"/>
+<table>
+    <tr>
+        <td>Name</td>
+        <td><form:input path="name"/> <%--<form:errors path="lastName" cssClass="error"/>--%></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td><form:input path="description"/> <%--<form:errors path="firstName" cssClass="error"/>--%></td>
+    </tr>
+
+</table>
   <br>
-  <button class="btn btn-primary" type="submit">Добавить</button>
-</form:form>
 
+</form:form>
+        <button class="btn btn-primary" type="submit">Create</button>
+</div>
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webres/jquery/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
