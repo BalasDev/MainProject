@@ -60,7 +60,7 @@ public class ProjectController {
     public String toMember(/*Integer id,*/Map<String, Object> map) {
 
         map.put("memberList", projectService.listMember(projectId));
-        map.put("projectName", projectService.listMember(projectId).get(0).getProject().getName());
+       // map.put("projectName", projectService.listMember(projectId).get(0).getProject().getName());
         return "projectmembers";
     }
 

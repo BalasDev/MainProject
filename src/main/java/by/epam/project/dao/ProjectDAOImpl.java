@@ -1,9 +1,6 @@
 package by.epam.project.dao;
 
-import by.epam.project.domain.Employee;
-import by.epam.project.domain.Member;
-import by.epam.project.domain.Project;
-import by.epam.project.domain.Role;
+import by.epam.project.domain.*;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,10 +47,22 @@ public class ProjectDAOImpl implements ProjectDAO {
 
     @Override
     public void addMember(Integer projId, Integer emplId, Integer roleId) {
-        Query query = sessionFactory.getCurrentSession().
+
+
+        Project project = (Project) sessionFactory.getCurrentSession().load(Project.class, projId);
+        Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class,emplId);
+        Role role = (Role) sessionFactory.getCurrentSession().load(Role.class,roleId);
+
+        Member member = new Member();
+        member.setEmployee(employee);
+        member.setProject(project);
+        member.setRole(role);
+
+        sessionFactory.getCurrentSession().save(member);
+        /*Query query = sessionFactory.getCurrentSession().
         createQuery("insert into Member(PROJECTID,EMPLOYEEID,ROLEID) values(:projId,:emplId,:roleId)");
         query.setParameter("projId", projId);
         query.setParameter("emplId", emplId);
-        query.setParameter("roleId", roleId);
+        query.setParameter("roleId", roleId);*/
     }
 }
