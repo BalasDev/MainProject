@@ -1,7 +1,10 @@
 package by.epam.project.web;
 
 import by.epam.project.domain.Project;
+import by.epam.project.security.CustomUserDetailService;
+import by.epam.project.service.IssueService;
 import by.epam.project.service.ProjectService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,8 +21,10 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
-
+    @Autowired
+    private IssueService issueService;
     private int projectId;
+    private CustomUserDetailService user = new CustomUserDetailService();
 
 
     @RequestMapping("/toprojectadministration")
@@ -59,6 +64,8 @@ public class ProjectController {
     @RequestMapping("/tomember")
     public String toMember(/*Integer id,*/Map<String, Object> map) {
 
+
+
         map.put("memberList", projectService.listMember(projectId));
        // map.put("projectName", projectService.listMember(projectId).get(0).getProject().getName());
         return "projectmembers";
@@ -75,8 +82,16 @@ public class ProjectController {
     @RequestMapping(value = "/addmember", method = RequestMethod.POST)
     public String addMember(@RequestParam("employeeId") Integer empId,
                             @RequestParam("roleId") Integer roleId) {
-        projectService.addMember(projectId,empId,roleId);
+        projectService.addMember(projectId, empId, roleId);
 
         return "redirect:/tomember";
+    }
+
+    @RequestMapping("/tocreateissue")
+    public String toCreateIssue(Map<String, Object> map){
+        System.out.println(user.getCurrentUser());
+        map.put("projectList", issueService.getProject(user.getCurrentUser()));
+
+        return "createissue";
     }
 }

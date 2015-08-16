@@ -35,17 +35,17 @@ public class ProjectDAOImpl implements ProjectDAO {
         return sessionFactory.getCurrentSession().createQuery("from Project").list();
     }
 
-    @Override
+
     public List<Employee> listEmployee() {
         return sessionFactory.getCurrentSession().createQuery("from Employee").list();
     }
 
-    @Override
+
     public List<Role> listRole() {
         return sessionFactory.getCurrentSession().createQuery("from Role").list();
     }
 
-    @Override
+
     public void addMember(Integer projId, Integer emplId, Integer roleId) {
 
 
@@ -65,4 +65,7 @@ public class ProjectDAOImpl implements ProjectDAO {
         query.setParameter("emplId", emplId);
         query.setParameter("roleId", roleId);*/
     }
+
+
+
 }

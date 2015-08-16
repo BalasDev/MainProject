@@ -2,9 +2,12 @@ package by.epam.project.security;
 
 import by.epam.project.domain.Employee;
 import by.epam.project.service.EmployeeService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,5 +39,23 @@ public class CustomUserDetailService implements UserDetailsService {
         } else
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return authorities;
+    }
+    public String getCurrentUser()  {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+      /*  if (null == auth) {
+            throw new NotFoundException("");
+        }*/
+
+        Object obj = auth.getPrincipal();
+        String login = "";
+
+        if (obj instanceof UserDetails) {
+            login = ((UserDetails) obj).getUsername();
+        } else {
+            login = obj.toString();
+        }
+
+        return login;
     }
 }
