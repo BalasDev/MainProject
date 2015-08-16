@@ -34,7 +34,7 @@ public class IssueDAOImpl implements IssueDAO {
         query.setParameter("login",login);
         query.setParameter("role1","Teamlead");
         query.setParameter("role2","Project Manager");
-        query.setParameter("role3","manadger");
+        query.setParameter("role3","manadger");//change manadger to Manager
         projects = query.list();
         return projects;
     }

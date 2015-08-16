@@ -17,6 +17,20 @@
 
 </head>
 <body>
+<script type="text/javascript">
+
+    function Mapit(){
+
+        var member=projectId.options[projectId.selectedIndex].value;
+
+        alert(member);
+
+// alert is for debugging only next we go on to process and do something
+// in this developing program it will placing markers on a map
+
+    }
+</script>
+
 <div class="panel panel-warning">
   <div class="panel-heading">
      <h4 class="panel-title">
@@ -34,7 +48,7 @@
 
             <div class="col-lg-6 col-md-6 form-group">
 
-              <select class="form-control" name="projectId" id="projectId">
+              <select class="form-control" name="projectId" id="projectId" onchange="Mapit();">
                 <c:forEach items="${projectList}" var="project">
                   <option value=${project.id}> ${project.name}  </option>
                 </c:forEach>
