@@ -1,6 +1,7 @@
 package by.epam.project.domain;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by Roma on 18.08.2015.
@@ -19,6 +20,18 @@ public class Task {
 
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "PSD")
+    private Date psd;
+
+    @Column(name = "PDD")
+    private Integer pdd;
+
+    @Column(name = "ASD")
+    private Date asd;
+
+    @Column (name ="AD")
+    private Integer ad;
 
     @ManyToOne
     @JoinColumn(name="STATUSID")
@@ -54,5 +67,37 @@ public class Task {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public Date getPsd() {
+        return psd;
+    }
+
+    public void setPsd(Date psd) {
+        this.psd = psd;
+    }
+
+    public Integer getPdd() {
+        return pdd;
+    }
+
+    public void setPdd(Integer pdd) {
+        this.pdd = pdd;
+    }
+
+    public Date getAsd() {
+        return asd;
+    }
+
+    public void setAsd(Date asd) {
+        this.asd = asd;
+    }
+
+    public Integer getAd() {
+        return ad;
+    }
+
+    public void setAd(Integer ad) {
+        this.ad = ad;
     }
 }
