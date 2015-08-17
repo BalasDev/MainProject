@@ -21,7 +21,7 @@ public class Employee {
     private String firstName;
 
     @Column(name = "LASTNAME")
-    private String lasttName;
+    private String lastName;
 
     @Column(name = "LOGIN")
     private String login;
@@ -53,12 +53,12 @@ public class Employee {
         this.firstName = firstName;
     }
 
-    public String getLasttName() {
-        return lasttName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasttName(String lasttName) {
-        this.lasttName = lasttName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getLogin() {
