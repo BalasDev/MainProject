@@ -18,7 +18,7 @@ public class Assigment {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "TASKID")
     private Task task;
 
