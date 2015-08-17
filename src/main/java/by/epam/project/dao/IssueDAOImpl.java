@@ -1,5 +1,6 @@
 package by.epam.project.dao;
 
+import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -37,5 +38,15 @@ public class IssueDAOImpl implements IssueDAO {
         query.setParameter("role3","manadger");//change manadger to Manager
         projects = query.list();
         return projects;
+    }
+
+    @Override
+    public List<Member> getMember(Integer id) {
+        List<Member> members = new ArrayList<Member>();
+        Query query = sessionFactory.getCurrentSession().createQuery("from Member m " +
+                "where m.ID = :id");
+        query.setParameter(id,"id");
+        members = query.list();
+        return members;
     }
 }

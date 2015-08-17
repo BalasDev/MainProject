@@ -19,15 +19,29 @@
 <body>
 <script type="text/javascript">
 
-    function Mapit(){
+    function doAjax(){
 
-        var member=projectId.options[projectId.selectedIndex].value;
+        var memberId=projectId.options[projectId.selectedIndex].value;
+        alert('${pageContext.request.contextPath}/getmember');
+        $.ajax({
+            type: 'GET',
+            url : "/a",
 
-        alert(member);
+
+            data : ({
+                text: memberId
+            }),
+               success: function (data) {
+                   alert(memberId);
+
+
+
 
 // alert is for debugging only next we go on to process and do something
 // in this developing program it will placing markers on a map
 
+               }
+        });
     }
 </script>
 
@@ -48,7 +62,8 @@
 
             <div class="col-lg-6 col-md-6 form-group">
 
-              <select class="form-control" name="projectId" id="projectId" onchange="Mapit();">
+              <select class="form-control" name="projectId" id="projectId" onchange="doAjax();">
+                  <option> </option>
                 <c:forEach items="${projectList}" var="project">
                   <option value=${project.id}> ${project.name}  </option>
                 </c:forEach>
