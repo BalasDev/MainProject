@@ -13,8 +13,16 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name="PROJECTID")
+    private Project project;
+
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="STATUSID")
+    private Status status;
 
     public Integer getId() {
         return id;
@@ -30,5 +38,21 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
