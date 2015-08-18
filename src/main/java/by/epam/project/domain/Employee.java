@@ -3,6 +3,8 @@ package by.epam.project.domain;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -31,9 +33,11 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name="POSITIONID")
+    @JsonIgnore
     private Position position;
 
     @ManyToMany(mappedBy = "employees")
+    @JsonIgnore
     private List<Project> projects;
 
 

@@ -1,6 +1,7 @@
 package by.epam.project.dao;
 
 
+import by.epam.project.domain.Employee;
 import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 
@@ -10,5 +11,5 @@ public interface IssueDAO {
 
     public List<Project> getProject(String login);
 
-    public List<Member>getMember(Integer id);
+    public List<Employee>getEmployee(Integer id);
 }

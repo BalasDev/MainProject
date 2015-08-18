@@ -1,5 +1,6 @@
 package by.epam.project.web;
 
+import by.epam.project.domain.Employee;
 import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 import by.epam.project.security.CustomUserDetailService;
@@ -95,16 +96,16 @@ public class ProjectController {
         return "createissue";
     }
     @Transactional
-    @RequestMapping(value = "/getmembers", method = RequestMethod.POST)
+    @RequestMapping(value = "/getemployees", method = RequestMethod.POST)
     public @ResponseBody
-    List<Member> getMembers(@RequestBody Integer id){
-        List<Member> members = new ArrayList<Member>();
+    List<Employee> getEmpolyee(@RequestBody Integer id){
+        List<Employee> employees = new ArrayList<Employee>();
 
         System.out.println(id);
-        members = issueService.getMember(id);
-        for(Member m:members)
-            System.out.println(m.getId());
-        return members;
+        employees = issueService.getEmployee(id);
+        for(Employee e:employees)
+            System.out.println(e.getId());
+        return employees;
     }
 
 }

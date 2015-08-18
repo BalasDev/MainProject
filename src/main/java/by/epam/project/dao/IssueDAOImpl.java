@@ -1,5 +1,6 @@
 package by.epam.project.dao;
 
+import by.epam.project.domain.Employee;
 import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 import org.hibernate.Query;
@@ -18,20 +19,15 @@ public class IssueDAOImpl implements IssueDAO {
 
     public List<Project> getProject(String login) {
 
-        String stringQuery = "select distinct  p from Project p " +
+        String stringQueryProject = "select distinct  p from Project p " +
 
-                "inner join p.employees  e " +
-                "inner join p.roles r " +
+                "left join p.employees  e " +
+                "left join p.roles r " +
                 "where r.name in (:role1,:role2,:role3) " +
                 "and e.login=:login";
-
-
-                /*+
-                "WHERE Project.roles.getName in (:role1,:role2,:role3) " +
-                "and Project.Employee.LOGIN =:login"*/;
         List<Project> projects = new ArrayList<Project>();
 
-        Query query = sessionFactory.getCurrentSession().createQuery(stringQuery);
+        Query query = sessionFactory.getCurrentSession().createQuery(stringQueryProject);
         query.setParameter("login",login);
         query.setParameter("role1","Teamlead");
         query.setParameter("role2","Project Manager");
@@ -41,11 +37,15 @@ public class IssueDAOImpl implements IssueDAO {
     }
 
 
-    public List<Member> getMember(Integer id) {
-        List<Member> members = new ArrayList<Member>();
-        Query query = sessionFactory.getCurrentSession().createQuery("from Member  where PROJECTID = :id");
+    public List<Employee> getEmployee(Integer id) {
+
+        String stringQueryEmployee = "select e from Employee e " +
+                "left join e.projects p " +
+                "where p.id=:id" ;
+        List<Employee> employees = new ArrayList<Employee>();
+        Query query = sessionFactory.getCurrentSession().createQuery(stringQueryEmployee);
         query.setParameter("id",id);
-        members = query.list();
-        return members;
+        employees = query.list();
+        return employees;
     }
 }

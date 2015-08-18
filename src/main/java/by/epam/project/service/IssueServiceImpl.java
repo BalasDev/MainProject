@@ -2,6 +2,7 @@ package by.epam.project.service;
 
 
 import by.epam.project.dao.IssueDAO;
+import by.epam.project.domain.Employee;
 import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,10 @@ public class IssueServiceImpl implements IssueService{
     }
 
     @Transactional
-    public List<Member> getMember(Integer id) {
-        return issueDAO.getMember(id);
-    }
+    public List<Employee> getEmployee(Integer id){
+        return issueDAO.getEmployee(id);
+
+}
 
 
 }

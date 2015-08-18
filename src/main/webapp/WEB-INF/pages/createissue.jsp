@@ -35,16 +35,24 @@
 
         var id=projectId.options[projectId.selectedIndex].value;
        /* alert('${pageContext.request.contextPath}/getmember');*/
-        $.ajax({
-            url : "getmembers",
+       /* var jres =*/ $.ajax({
+            url : "getemployees",
             type: 'POST',
             data : JSON.stringify(id),
             contentType: 'application/json',
             mimeType: 'application/json',
-               success: function (data) {
-                   alert("Success");
+               success: function(data) {
+                   {
 
-               }
+                       for( var i in data )
+                       {
+                           alert(data[i])
+                       }
+                   }
+                       }
+
+
+
         });
     }
 </script>
