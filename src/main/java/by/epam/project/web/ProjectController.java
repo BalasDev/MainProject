@@ -5,13 +5,14 @@ import by.epam.project.domain.Project;
 import by.epam.project.security.CustomUserDetailService;
 import by.epam.project.service.IssueService;
 import by.epam.project.service.ProjectService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -93,12 +94,17 @@ public class ProjectController {
 
         return "createissue";
     }
-
-    @RequestMapping(value = "/a", method = RequestMethod.GET)
+    @Transactional
+    @RequestMapping(value = "/getmembers", method = RequestMethod.POST)
     public @ResponseBody
-    List<Member> getMembers(@RequestParam Integer id){
+    List<Member> getMembers(@RequestBody Integer id){
+        List<Member> members = new ArrayList<Member>();
 
-        return issueService.getMember(id);
+        System.out.println(id);
+        members = issueService.getMember(id);
+        for(Member m:members)
+            System.out.println(m.getId());
+        return members;
     }
 
 }

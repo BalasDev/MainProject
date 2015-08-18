@@ -19,26 +19,30 @@
 <body>
 <script type="text/javascript">
 
+    /*$.ajax({
+        url: "jsonservlet",
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(article),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+
+        success: function (data) {*/
+
+
+
     function doAjax(){
 
-        var memberId=projectId.options[projectId.selectedIndex].value;
-        alert('${pageContext.request.contextPath}/getmember');
+        var id=projectId.options[projectId.selectedIndex].value;
+       /* alert('${pageContext.request.contextPath}/getmember');*/
         $.ajax({
-            type: 'GET',
-            url : "/a",
-
-
-            data : ({
-                text: memberId
-            }),
+            url : "getmembers",
+            type: 'POST',
+            data : JSON.stringify(id),
+            contentType: 'application/json',
+            mimeType: 'application/json',
                success: function (data) {
-                   alert(memberId);
-
-
-
-
-// alert is for debugging only next we go on to process and do something
-// in this developing program it will placing markers on a map
+                   alert("Success");
 
                }
         });

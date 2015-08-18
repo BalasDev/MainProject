@@ -40,12 +40,11 @@ public class IssueDAOImpl implements IssueDAO {
         return projects;
     }
 
-    @Override
+
     public List<Member> getMember(Integer id) {
         List<Member> members = new ArrayList<Member>();
-        Query query = sessionFactory.getCurrentSession().createQuery("from Member m " +
-                "where m.ID = :id");
-        query.setParameter(id,"id");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Member  where PROJECTID = :id");
+        query.setParameter("id",id);
         members = query.list();
         return members;
     }
