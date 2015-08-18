@@ -42,17 +42,24 @@
             contentType: 'application/json',
             mimeType: 'application/json',
                success: function(data) {
-                   {
+                   var obj = data;
+                   /*for(i in obj){
+                       $('#roleId').append($("", {
+                           value: obj[i].id,
+                           text: obj[i].login
 
-                       for( var i in data )
-                       {
-                           alert(data[i])
-                       }
+                   }));
+                       alert (obj[i].login)
                    }
-                       }
+*/                  $.each(obj, function(key, value) {
+                       $('#roleId').append($("<option></option>")
+                                       .
+                               attr("value",value.id)
+                                       .text(value.login));
+                   });
 
 
-
+               }
         });
     }
 </script>
@@ -82,20 +89,20 @@
               </select>
 
             </div>
-            <%--</div>
-            <div class="col-lg-6 col-md-6">--%>
+            </div>
+            <div class="col-lg-6 col-md-6">
 
-           <%-- <label class="col-lg-6 col-md-6 control-label" for="roleId">Choose role</label>
+            <label class="col-lg-6 col-md-6 control-label" for="roleId">Choose role</label>
 
             <div class="col-lg-6 col-md-6 form-group">
 
               <select class="form-control" name="roleId" id="roleId">
-                <c:forEach items="${roleList}" var="role">
-                  <option value="${role.id}"> ${role.name}  </option>
-                </c:forEach>
+
+                 <option value="">   </option>
+
               </select>
 
-            </div>--%>
+            </div>
           </div>
           </div>
         <%--</fieldset>--%>
