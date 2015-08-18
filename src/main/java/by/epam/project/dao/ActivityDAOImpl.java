@@ -14,7 +14,7 @@ public class ActivityDAOImpl implements ActivityDAO {
     SessionFactory sessionFactory;
 
     public Activity getActivity(Integer id) {
-        Activity activity = (Activity) sessionFactory.openSession().get(Activity.class, id);
+        Activity activity = (Activity) sessionFactory.getCurrentSession().get(Activity.class, id);
         return activity;
     }
 

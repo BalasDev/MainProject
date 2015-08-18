@@ -36,7 +36,7 @@
               <select class="form-control" name="employeeId" id="employeeId">
                 <c:forEach items="${employeeList}" var="employee">
                 <option value="${employee.id}"> ${employee.firstName}
-                 ${employee.lasttName} ${employee.position.name}  </option>
+                 ${employee.lastName} ${employee.position.name}  </option>
                 </c:forEach>
               </select>
 

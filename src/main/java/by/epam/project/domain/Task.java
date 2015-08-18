@@ -3,6 +3,9 @@ package by.epam.project.domain;
 import javax.persistence.*;
 import java.sql.Date;
 
+/**
+ * Created by Roma on 18.08.2015.
+ */
 @Entity
 @Table(name = "TASK")
 public class Task {
@@ -12,10 +15,10 @@ public class Task {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "PROJECTID")
+    @JoinColumn(name="PROJECTID")
     private Project project;
 
-    @Column(name = "DESCPRITION")
+    @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "PSD")
@@ -27,20 +30,12 @@ public class Task {
     @Column(name = "ASD")
     private Date asd;
 
-    @Column(name = "AD")
+    @Column (name ="AD")
     private Integer ad;
 
     @ManyToOne
-    @JoinColumn(name = "STATUSID")
+    @JoinColumn(name="STATUSID")
     private Status status;
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     public Integer getId() {
         return id;
@@ -50,20 +45,28 @@ public class Task {
         this.id = id;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public Date getPsd() {

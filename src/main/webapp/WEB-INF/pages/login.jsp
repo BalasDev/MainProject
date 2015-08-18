@@ -56,6 +56,12 @@
 
                 <div class="row">
                     <div class="col-lg-9 col-lg-offset-3">
+                        <button class="btn btn-primary" type="submit">Login In</button>
+                    </div>
+                </div>
+
+                <%-- <div class="row">
+                    <div class="col-lg-9 col-lg-offset-3">
                         <button class="btn btn-primary" type="submit">Login with EPAM SSO</button>
                     </div>
                 </div>
@@ -64,7 +70,7 @@
                     <div class="col-lg-9 col-lg-offset-3">
                         <button class="btn btn-default" type="submit">Log In</button>
                     </div>
-                </div>
+                </div>--%>
             </form>
 
             <div>

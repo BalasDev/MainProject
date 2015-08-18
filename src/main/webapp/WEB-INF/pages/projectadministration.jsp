@@ -14,11 +14,9 @@
   <table class="table table-condensed table-hover table-striped table-bordered">
 
   <tr>
-  <%--  <th></th>--%>
   <th>Project name</th>
   <th>Description</th>
 
-  <th></th>
 
   </tr>
 
@@ -31,7 +29,7 @@
     <td>${project.description}</td>
 
 
-      <td>
+     <%-- <td>
         <div class="btn-group">
 
           <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${project.id}"><i
@@ -39,7 +37,7 @@
                   style="color: red"></i>
           </a>
         </div>
-      </td>
+      </td>--%>
 
 <%--modal--%>
     <%--<div class="modal fade" id="delete_${personality.id}">
