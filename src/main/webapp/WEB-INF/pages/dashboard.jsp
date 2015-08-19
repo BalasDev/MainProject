@@ -16,49 +16,15 @@
                     function (data) {
                         var activity = data;
                         $.each(activity, function (key, value) {
-//                            $('#tblActiv').append($("<tr></tr>")
-//                                    .text(value.lastName + " <br> " + value.firstName));
-                            $("#tblActiv").append('<tr><td>'+value.lastName+' '+value.firstName+' value column 2 value</td></tr>');
-
-//                            $('#tblActiv').append($("<tr></tr>")
-//                                    .text(value.lastName + " <br> " + value.firstName));
-
+                            $("#tblActiv").append('<tr><td>' + value.lastName + ' ' + value.firstName +
+                                    ' project:' + value.project + ' task:' + value.task + '<br>' + value.comment +
+                                    '<br><div class="text-right text-danger" style="font-size: x-small">' + value.date +
+                                    '</div></td></tr>');
                         });
-//                        $("#forEarch").append('cccc'+data);
                     });
         });
     });
 </script>
-
-<%--<script type="text/javascript">--%>
-
-    <%--function doAjax() {--%>
-        <%--$.ajax({--%>
-            <%--url: "/showMore",--%>
-            <%--type: 'POST',--%>
-            <%--contentType: 'application/json',--%>
-            <%--mimeType: 'application/json',--%>
-            <%--success: function (data, status) {--%>
-                <%--alert("Status: " + status);--%>
-                <%--var obj = data;--%>
-                <%--$.each(obj, function (key, value) {--%>
-<%--//                    $('#tblActiv').append("<tr>"+value.lastName+"</tr>");--%>
-                    <%--$('#tblActiv').prepend("<b>jQuery</b> - это  ");--%>
-                    <%--)--%>
-                    <%--;--%>
-                    <%--//.text(value.lastName +' '+ value.firstName +' project:'+ value.project +' task:'+ value.task +'<br>'+ value.comment +'<br><div class="text-right text-danger" style="font-size: x-small">'+ value.date + '</div>' ));--%>
-
-
-                    <%--&lt;%&ndash;${activity.member.employee.lastName} ${activity.member.employee.firstName}--%>
-                            <%--project:${activity.member.project.name} task:${activity.assigment.task.description}--%>
-                            <%--<br>${activity.comment}--%>
-                            <%--<br><div class="text-right text-danger" style="font-size: x-small">${activity.date}</div>--%>
-<%--&ndash;%&gt;--%>
-                <%--});--%>
-            <%--}--%>
-        <%--});--%>
-    <%--}--%>
-<%--</script>--%>
 
 
 <jsp:include page="header.jsp"/>
@@ -81,14 +47,7 @@
                 </div>
                 <div class="rowStyle">
                     <table class="table" id="tblActiv">
-                        <%--<c:forEach items="${listActivity}" var="activity">--%>
 
-                        <%--${activity.member.employee.lastName} ${activity.member.employee.firstName}
-                        project:${activity.member.project.name} task:${activity.assigment.task.description}
-                        <br>${activity.comment}
-                        <br><div class="text-right text-danger" style="font-size: x-small">${activity.date}</div>
---%>
-                        <%--</c:forEach>--%>
                     </table>
                     <button id="btnShow">Show more</button>
                 </div>
