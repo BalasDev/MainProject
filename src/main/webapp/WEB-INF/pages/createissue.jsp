@@ -51,11 +51,13 @@
                    }));
                        alert (obj[i].login)
                    }
-*/                  $.each(obj, function(key, value) {
+*/                  $('#roleId').empty();
+                   $.each(obj, function(key, value) {
+
                        $('#roleId').append($("<option></option>")
                                        .
                                attr("value",value.id)
-                                       .text(value.login));
+                                       .text(value.firstName + ' ' +value.lastName));
                    });
 
 
@@ -63,7 +65,7 @@
         });
     }
 </script>
-
+<div class="container">
 <div class="panel panel-warning">
   <div class="panel-heading">
      <h4 class="panel-title">
@@ -74,10 +76,10 @@
     <div class="form-horizontal">
       <form action="addmember" method="post">
        <%-- <fieldset style="padding-top: 10px" id="filterForm">--%>
-        <div class="row">
+        <div class="row" style="padding-top: 10px">
           <div class="col-lg-6 col-md-6 ">
 
-            <label class="col-lg-6 col-md-6 control-label" for="projectId">Choose employee</label>
+            <label class="col-lg-6 col-md-6 control-label" for="projectId">Project</label>
 
             <div class="col-lg-6 col-md-6 form-group">
 
@@ -89,12 +91,15 @@
               </select>
 
             </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
+           <%-- </div>--%>
+           <%-- <div class="col-lg-6 col-md-6">--%>
+             <label class="col-lg-6 col-md-6 control-label" for="summary">Summary</label>
+              <div class="col-lg-6 col-lg-6 form-group">
+                  <input type="text" id="summary" > </input>
+              </div>
+            <label class="col-lg-3 control-label" for="roleId">Assignee</label>
 
-            <label class="col-lg-6 col-md-6 control-label" for="roleId">Choose role</label>
-
-            <div class="col-lg-6 col-md-6 form-group">
+            <div class="col-lg-9 form-group">
 
               <select class="form-control" name="roleId" id="roleId">
 
@@ -105,6 +110,7 @@
             </div>
           </div>
           </div>
+
         <%--</fieldset>--%>
         <div class="col-lg-3 col-lg-3 col-md-6 form-group">
           <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Add </button>
@@ -114,6 +120,7 @@
 
     </div>
   </div>
+</div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webres/jquery/jquery.min.js"></script>
