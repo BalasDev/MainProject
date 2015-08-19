@@ -49,7 +49,7 @@
                     <table class="table" id="tblActiv">
 
                     </table>
-                    <button id="btnShow">Show more</button>
+                    <button class="btn-success" id="btnShow" >Show more</button>
                 </div>
             </div>
         </div>
