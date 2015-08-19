@@ -22,15 +22,17 @@ public class IssueDAOImpl implements IssueDAO {
 
                 "left join p.employees  e " +
                 "left join p.roles r " +
-                "where r.name in (:role1,:role2,:role3) " +
+                "where r.name in (:role1,:role2,:role3,:role4) " +
                 "and e.login=:login";
         List<Project> projects = new ArrayList<Project>();
 
         Query query = sessionFactory.getCurrentSession().createQuery(stringQueryProject);
         query.setParameter("login",login);
-        query.setParameter("role1","Teamlead");
-        query.setParameter("role2","Project Manager");
-        query.setParameter("role3","manadger");//change manadger to Manager
+        query.setParameter("role1","development");
+        query.setParameter("role2","key developer");
+        query.setParameter("role3","team lead");
+        query.setParameter("role4","manager");
+        //change manadger to Manager
         projects = query.list();
         return projects;
     }

@@ -1,5 +1,7 @@
 package by.epam.project.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -22,10 +24,12 @@ public class Activity {
 
     @ManyToOne
     @JoinColumn(name = "MEMBERID")
+    @JsonIgnore
     private Member member;
 
     @ManyToOne
     @JoinColumn(name = "ASSIGMENTID")
+    @JsonIgnore
     private Assigment assigment;
 
     public Integer getId() {
