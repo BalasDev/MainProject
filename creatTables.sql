@@ -124,11 +124,11 @@ insert into task values (2, 1, 'task2', '2015-08-16', 2, '2015-08-16', 2, 1);
 insert into attachment values(1, 'file', '200', 'descr_file', 1, 1);
 insert into attachment values(2, 'file2', '200', 'descr_file2', 1, 2);
 
-insert into assigment values (1, 1, 1, 'first person on the task1');
-insert into assigment values (2, 2, 2, 'second person on the task2');
+insert into assigment values (5, 1, 1, 'first person on the task1');
+insert into assigment values (6, 2, 2, 'second person on the task2');
 
 insert into activity values (1, '2015-08-17', 5, 'doing task1', 1, 1);
-insert into activity values (2, '2015-08-17', 4, 'doing task2', 2, 2);
+insert into activity values (6, '2015-08-17', 4, 'doing task2', 2, 2);
 
 
 

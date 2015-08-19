@@ -33,7 +33,7 @@
 
     function doAjax(){
 
-        var id=projectId.options[projectId.selectedIndex].value;
+        var id=project.options[project.selectedIndex].value;
        /* alert('${pageContext.request.contextPath}/getmember');*/
        /* var jres =*/ $.ajax({
             url : "getemployees",
@@ -51,10 +51,11 @@
                    }));
                        alert (obj[i].login)
                    }
-*/                  $('#roleId').empty();
+*/                  $('#member').empty();
+                    $('#member').append($("<option> </option>").attr("value"," ").text(" "));
                    $.each(obj, function(key, value) {
 
-                       $('#roleId').append($("<option></option>")
+                       $('#member').append($("<option></option>")
                                        .
                                attr("value",value.id)
                                        .text(value.firstName + ' ' +value.lastName));
@@ -74,16 +75,16 @@
   </div>
   <div id="collapseOne" class="panel-collapse collapse in">
     <div class="form-horizontal">
-      <form action="addmember" method="post">
+      <form action="createissue" method="post">
        <%-- <fieldset style="padding-top: 10px" id="filterForm">--%>
         <div class="row" style="padding-top: 10px">
           <div class="col-lg-6 col-md-6 ">
 
-            <label class="col-lg-6 col-md-6 control-label" for="projectId">Project</label>
+            <label class="col-lg-6 col-md-6 control-label" for="project">Project</label>
 
             <div class="col-lg-6 col-md-6 form-group">
 
-              <select class="form-control" name="projectId" id="projectId" onchange="doAjax();">
+              <select class="form-control" name="project" id="project" onchange="doAjax();">
                   <option> </option>
                 <c:forEach items="${projectList}" var="project">
                   <option value=${project.id}> ${project.name}  </option>
@@ -91,31 +92,37 @@
               </select>
 
             </div>
+          </div>
+          </div>
+           <div class="row">
            <%-- </div>--%>
            <%-- <div class="col-lg-6 col-md-6">--%>
-             <label class="col-lg-6 col-md-6 control-label" for="summary">Summary</label>
-              <div class="col-lg-6 col-lg-6 form-group">
-                  <input type="text" id="summary" > </input>
-              </div>
-            <label class="col-lg-3 control-label" for="roleId">Assignee</label>
 
-            <div class="col-lg-9 form-group">
+            <label class="col-lg-3 control-label" for="member">Assignee</label>
 
-              <select class="form-control" name="roleId" id="roleId">
+            <div class="col-lg-6 form-group">
+
+              <select class="form-control" name="member" id="member">
 
                  <option value="">   </option>
 
               </select>
-
+            <div> Assign to me </div>
             </div>
-          </div>
-          </div>
-
-        <%--</fieldset>--%>
-        <div class="col-lg-3 col-lg-3 col-md-6 form-group">
-          <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Add </button>
         </div>
-
+           <div class="row">
+               <label class="col-lg-3 control-label" for="description">Description</label>
+               <div class="col-lg-6 form-group">
+                   <textarea class="form-control" rows="3" id="description" name="description" > </textarea>
+               </div>
+           </div>
+  <div class="panel-footer "
+        <%--</fieldset>--%>
+           <%--<div class="container">--%>
+        <div class="col-lg-3 col-lg-6 form-group">
+          <button id='create' type="submit" class="btn btn-outline btn-block btn-success">Add </button>
+        </div>
+       <%-- </div>--%>
       </form>
 
     </div>
