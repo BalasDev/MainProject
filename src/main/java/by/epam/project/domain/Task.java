@@ -21,7 +21,7 @@ public class Task {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "PSD")
+   /* @Column(name = "PSD")
     private Date psd;
 
     @Column(name = "PDD")
@@ -31,7 +31,7 @@ public class Task {
     private Date asd;
 
     @Column (name ="AD")
-    private Integer ad;
+    private Integer ad;*/
 
     @ManyToOne
     @JoinColumn(name="STATUSID")
@@ -69,7 +69,7 @@ public class Task {
         this.project = project;
     }
 
-    public Date getPsd() {
+    /*public Date getPsd() {
         return psd;
     }
 
@@ -99,5 +99,5 @@ public class Task {
 
     public void setAd(Integer ad) {
         this.ad = ad;
-    }
+    }*/
 }

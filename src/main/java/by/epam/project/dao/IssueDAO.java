@@ -12,4 +12,6 @@ public interface IssueDAO {
     public List<Project> getProject(String login);
 
     public List<Employee>getEmployee(Integer id);
+
+    public void saveIssue(Integer prId, Integer memId, String desc, String currentUser);
 }

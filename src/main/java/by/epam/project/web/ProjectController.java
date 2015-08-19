@@ -3,6 +3,7 @@ package by.epam.project.web;
 import by.epam.project.domain.Employee;
 import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
+import by.epam.project.security.AuthUser;
 import by.epam.project.security.CustomUserDetailService;
 import by.epam.project.service.IssueService;
 import by.epam.project.service.ProjectService;
@@ -25,7 +26,7 @@ public class ProjectController {
     @Autowired
     private IssueService issueService;
     private int projectId;
-    private CustomUserDetailService user = new CustomUserDetailService();
+    private AuthUser user = new AuthUser();
 
 
     @RequestMapping("/toprojectadministration")
@@ -95,7 +96,7 @@ public class ProjectController {
 
         return "createissue";
     }
-    @Transactional
+
     @RequestMapping(value = "/getemployees", method = RequestMethod.POST)
     public @ResponseBody
     List<Employee> getEmpolyee(@RequestBody Integer id){
@@ -108,4 +109,19 @@ public class ProjectController {
         return employees;
     }
 
+    @RequestMapping(value = "/createissue", method = RequestMethod.POST)
+    public String createIssue(@RequestParam("project") Integer projectId,
+                              @RequestParam("member") Integer employeeId,
+                              @RequestParam("description") String description){
+
+
+
+        System.out.println(projectId);
+        System.out.println(employeeId);
+        System.out.println(description);
+
+        issueService.saveIssue(projectId,employeeId,description,user.getCurrentUser());
+
+        return "redirect:/";
+    }
 }

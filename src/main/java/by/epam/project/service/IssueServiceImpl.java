@@ -3,7 +3,6 @@ package by.epam.project.service;
 
 import by.epam.project.dao.IssueDAO;
 import by.epam.project.domain.Employee;
-import by.epam.project.domain.Member;
 import by.epam.project.domain.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +26,12 @@ public class IssueServiceImpl implements IssueService{
         return issueDAO.getEmployee(id);
 
 }
+
+    @Transactional
+    public void saveIssue(Integer prId, Integer memId, String desc, String currentUser) {
+        issueDAO.saveIssue(prId,memId,desc,currentUser);
+
+    }
 
 
 }

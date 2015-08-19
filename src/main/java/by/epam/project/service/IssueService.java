@@ -13,4 +13,6 @@ public interface IssueService {
 
     public List<Employee> getEmployee(Integer id);
 
+    public void saveIssue(Integer prId, Integer memId, String desc, String currentUser);
+
 }

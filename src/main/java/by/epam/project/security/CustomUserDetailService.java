@@ -40,22 +40,5 @@ public class CustomUserDetailService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return authorities;
     }
-    public String getCurrentUser()  {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-      /*  if (null == auth) {
-            throw new NotFoundException("");
-        }*/
-
-        Object obj = auth.getPrincipal();
-        String login = "";
-
-        if (obj instanceof UserDetails) {
-            login = ((UserDetails) obj).getUsername();
-        } else {
-            login = obj.toString();
-        }
-
-        return login;
-    }
 }
