@@ -47,7 +47,7 @@
                 </div>
                 <div class="rowStyle scroll" style="height: 400px">
                     <table class="table" id="tblActiv">
-                        <c:forEach items="${listActivity}" var="activity" end="1">
+                        <c:forEach items="${listActivity}" var="activity" end="0">
                             <tr>
                                 <td>
                                     ${activity.member.employee.lastName} ${activity.member.employee.firstName}
