@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="rowStyle">
+                <div class="rowStyle scroll" style="height: 400px">
                     <table class="table" id="tblActiv">
                         <c:forEach items="${listActivity}" var="activity" end="1">
                             <tr>
@@ -60,8 +60,9 @@
                             </tr>
                         </c:forEach>
                     </table>
-                    <button class="btn btn-default btn-block" id="btnShow">Show more</button>
+
                 </div>
+                <button class="btn btn-default btn-block" id="btnShow">Show more</button>
             </div>
         </div>
 
