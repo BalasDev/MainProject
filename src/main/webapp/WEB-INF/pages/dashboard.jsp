@@ -47,9 +47,20 @@
                 </div>
                 <div class="rowStyle">
                     <table class="table" id="tblActiv">
-
+                        <c:forEach items="${listActivity}" var="activity" end="1">
+                            <tr>
+                                <td>
+                                    ${activity.member.employee.lastName} ${activity.member.employee.firstName}
+                                    project:${activity.member.project.name} task:${activity.assigment.task.description}
+                                    <br>${activity.comment}
+                                    <br>
+                                    <div class="text-right text-danger"
+                                         style="font-size: x-small">${activity.date}</div>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </table>
-                    <button class="btn-success" id="btnShow" >Show more</button>
+                    <button class="btn btn-default btn-block" id="btnShow">Show more</button>
                 </div>
             </div>
         </div>
