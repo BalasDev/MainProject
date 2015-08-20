@@ -19,9 +19,6 @@
 <body>
 <script type="text/javascript">
 
-
-
-
     function doAjax(){
 
         var id=project.options[project.selectedIndex].value;

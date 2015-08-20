@@ -33,7 +33,7 @@
     <div class="row" style="padding-left: 40px">
         <h3>System Dashboard</h3>
     </div>
-    <div class="row">
+    <div class="rowPadding">
         <div class="col-lg-6">
 
             <div class="frame scroll" style="height: 75%">
@@ -84,13 +84,17 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="text-center">Task</th>
+                             <th>Project</th>
+                             <th>Task</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <c:forEach items="${listTask}" var="task">
                             <tr>
+                                <td>
+                                    ${task.project.name}
+                                </td>
                                 <td>
                                     ${task.description}
                                 </td>
