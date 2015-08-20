@@ -64,7 +64,9 @@
                     </table>
 
                 </div>
-                <button class="btn btn-default btn-block" id="btnShow">Show more</button>
+
+                <button class="btn btn-default btn-block" id="btnShow" style=" margin-top: 60px;" >Show more</button>
+
             </div>
         </div>
 
