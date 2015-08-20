@@ -39,7 +39,6 @@ public class LoginController {
         map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
         startElem=1;
-        finishElem=startElem+1;
         return "dashboard";
     }
 
@@ -55,19 +54,17 @@ public class LoginController {
     @ResponseBody
     List<ActivityStream> showMore() {
         List<Activity> activity = activityService.listActivity();
-        List<Activity> activity2 = new ArrayList<Activity>();
+        List<Activity> activityPart = new ArrayList<Activity>();
         List<ActivityStream> activityStreams = new ArrayList<ActivityStream>();
+        finishElem=startElem+1;
 
-//        for (int i = startElem; i <= finishElem; i++){
-//
-            while(startElem<=finishElem){
-            activity2.addAll(activity.subList(startElem, startElem+1));
+            while((startElem<finishElem)&&(startElem<activity.size())){
+            activityPart.addAll(activity.subList(startElem, startElem + 1));
             startElem++;
             }
-        //startElem = startElem + 1;
-//    }
-        if (activity2.size()!=0){
-        for (Activity entry : activity2) {
+
+        if (activityPart.size()!=0){
+        for (Activity entry : activityPart) {
             activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
                     entry.getMember().getEmployee().getFirstName(),
                     entry.getMember().getProject().getName(),
