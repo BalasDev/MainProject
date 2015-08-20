@@ -30,6 +30,7 @@ public class LoginController {
     TaskService taskService;
 
     Integer startElem;
+    Integer finishElem;
 
 
     @RequestMapping("/")
@@ -38,6 +39,7 @@ public class LoginController {
         map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
         startElem=1;
+        finishElem=startElem+1;
         return "dashboard";
     }
 
@@ -55,9 +57,16 @@ public class LoginController {
         List<Activity> activity = activityService.listActivity();
         List<Activity> activity2 = new ArrayList<Activity>();
         List<ActivityStream> activityStreams = new ArrayList<ActivityStream>();
-        activity2.addAll(activity.subList(startElem, startElem+1));
-        startElem=startElem+1;
-        if (activity2!=null){
+
+//        for (int i = startElem; i <= finishElem; i++){
+//
+            while(startElem<=finishElem){
+            activity2.addAll(activity.subList(startElem, startElem+1));
+            startElem++;
+            }
+        //startElem = startElem + 1;
+//    }
+        if (activity2.size()!=0){
         for (Activity entry : activity2) {
             activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
                     entry.getMember().getEmployee().getFirstName(),
