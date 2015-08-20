@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Roma on 18.08.2015.
  */
@@ -19,5 +21,12 @@ public class TaskServiceImpl implements TaskService{
     public Task getTask(Integer id){
         return taskDAO.getTask(id);
     }
+
+    @Transactional
+    public List<Task> getTaskList(String login){
+        return taskDAO.getTaskLogin(login);
+    }
+
+
 
 }

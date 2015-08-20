@@ -84,26 +84,28 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="text-center">Key</th>
-                            <th class="text-center">Summary</th>
+                            <th class="text-center">Task</th>
                         </tr>
                         </thead>
+
                         <tbody>
                         <tr>
                             <td>Key</td>
                             <td>Summary</td>
                         </tr>
 
-                        <c:forEach items="${listActivity}" var="activity" end="0">
+                        <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
-                                        ${activity.member.employee.lastName} ${activity.member.employee.firstName}
-                                    project:${activity.member.project.name} task:${activity.assigment.task.description}
-                                    <br>${activity.comment}
-                                    <br>
+                                    ${task.description}
 
-                                    <div class="text-right text-danger"
-                                         style="font-size: x-small">${activity.date}</div>
+                                        <%-- ${activity.member.employee.lastName} ${activity.member.employee.firstName}
+                                     project:${activity.member.project.name} task:${activity.assigment.task.description}
+                                     <br>${activity.comment}
+                                     <br>
+
+                                     <div class="text-right text-danger"
+                                          style="font-size: x-small">${activity.date}</div>--%>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -117,4 +119,4 @@
     </div>
 
 
-<jsp:include page="footer.jsp"/>
+</div><jsp:include page="footer.jsp"/>

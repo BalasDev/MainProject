@@ -2,6 +2,7 @@ package by.epam.project.web;
 
 import by.epam.project.domain.Activity;
 import by.epam.project.domain.ActivityStream;
+import by.epam.project.security.AuthUser;
 import by.epam.project.service.ActivityService;
 import by.epam.project.service.AttachmentService;
 import by.epam.project.service.EmployeeService;
@@ -28,6 +29,7 @@ public class LoginController {
     AttachmentService attachmentService;
     @Autowired
     TaskService taskService;
+
 
     Integer startElem;
     Integer countShow = 1;
