@@ -50,10 +50,11 @@
                         <c:forEach items="${listActivity}" var="activity" end="0">
                             <tr>
                                 <td>
-                                    ${activity.member.employee.lastName} ${activity.member.employee.firstName}
+                                        ${activity.member.employee.lastName} ${activity.member.employee.firstName}
                                     project:${activity.member.project.name} task:${activity.assigment.task.description}
                                     <br>${activity.comment}
                                     <br>
+
                                     <div class="text-right text-danger"
                                          style="font-size: x-small">${activity.date}</div>
                                 </td>
@@ -91,31 +92,20 @@
                             <td>Key</td>
                             <td>Summary</td>
                         </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
 
+                        <c:forEach items="${listActivity}" var="activity" end="0">
+                            <tr>
+                                <td>
+                                        ${activity.member.employee.lastName} ${activity.member.employee.firstName}
+                                    project:${activity.member.project.name} task:${activity.assigment.task.description}
+                                    <br>${activity.comment}
+                                    <br>
+
+                                    <div class="text-right text-danger"
+                                         style="font-size: x-small">${activity.date}</div>
+                                </td>
+                            </tr>
+                        </c:forEach>
 
                         </tbody>
                     </table>
