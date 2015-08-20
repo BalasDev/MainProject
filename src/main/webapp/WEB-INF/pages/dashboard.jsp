@@ -85,8 +85,8 @@
                 <div class="rowStyle">
                     <table class="table">
                         <thead>
+
                         <tr>
-                             <th>Project</th>
                              <th>Task</th>
                         </tr>
                         </thead>
@@ -94,9 +94,6 @@
                         <tbody>
                         <c:forEach items="${listTask}" var="task">
                             <tr>
-                                <td>
-                                    ${task.project.name}
-                                </td>
                                 <td>
                                     ${task.description}
                                 </td>

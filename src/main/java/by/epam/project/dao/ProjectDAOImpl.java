@@ -48,7 +48,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 
     public void addMember(Integer projId, Integer emplId, Integer roleId) {
 
-
         Project project = (Project) sessionFactory.getCurrentSession().load(Project.class, projId);
         Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class,emplId);
         Role role = (Role) sessionFactory.getCurrentSession().load(Role.class,roleId);
@@ -66,6 +65,14 @@ public class ProjectDAOImpl implements ProjectDAO {
         query.setParameter("roleId", roleId);*/
     }
 
-
+    public List<Project> getProjects (String login) {
+        String stringQuery = "select distinct p from Project p " +
+                "left join p.employees e " +
+                "where e.login=:login";
+        Query query = sessionFactory.getCurrentSession().createQuery(stringQuery);
+        query.setParameter("login",login);
+        List<Project> projects = query.list();
+        return projects;
+    }
 
 }
