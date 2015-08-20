@@ -21,4 +21,6 @@ public interface ProjectService {
     public List<Role> listRole();
 
     public void addMember(Integer projId,Integer emplId,Integer roleId);
+
+    public List<Project> getProjects(String login);
 }

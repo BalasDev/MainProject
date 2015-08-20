@@ -48,4 +48,9 @@ public class ProjectServiceImpl implements ProjectService {
         projectDAO.addMember(projId,emplId,roleId);
 
     }
+
+    @Transactional
+    public List<Project> getProjects(String login) {
+       return projectDAO.getProjects(login);
+    }
 }
