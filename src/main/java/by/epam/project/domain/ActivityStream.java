@@ -20,6 +20,7 @@ public class ActivityStream {
         this.date = date;
     }
 
+
     public String getLastName() {
         return lastName;
     }

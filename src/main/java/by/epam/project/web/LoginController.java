@@ -29,12 +29,15 @@ public class LoginController {
     @Autowired
     TaskService taskService;
 
+    Integer startElem;
+    Integer countShow = 1;
+
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
-        //  map.put("attachment",attachmentService.getAttachment(1));
         map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
+        startElem = countShow;
         return "dashboard";
     }
 
@@ -50,30 +53,24 @@ public class LoginController {
     @ResponseBody
     List<ActivityStream> showMore() {
         List<Activity> activity = activityService.listActivity();
+        List<Activity> activityPart = new ArrayList<Activity>();
         List<ActivityStream> activityStreams = new ArrayList<ActivityStream>();
-        for (Activity entry : activity) {
-          /*  ActivityStream temp = new ActivityStream(entry.getMember().getEmployee().getLastName(),
-                    entry.getMember().getEmployee().getFirstName(),
-                    entry.getMember().getProject().getName(),
-                    entry.getAssigment().getTask().getDescription(),
-                    entry.getComment(),
-                    entry.getDate());*/
-            activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
-                    entry.getMember().getEmployee().getFirstName(),
-                    entry.getMember().getProject().getName(),
-                    entry.getAssigment().getTask().getDescription(),
-                    entry.getComment(),
-                    entry.getDate()));
+        Integer finishElem=startElem+countShow;
+        while ((startElem < (finishElem)) && (startElem < activity.size())) {
+            activityPart.addAll(activity.subList(startElem, startElem + 1));
+            startElem++;
         }
 
-      /*  <%--${activity.member.employee.lastName}
-      ${activity.member.employee.firstName}
-        project:${activity.member.project.name}
-         task:${activity.assigment.task.description}
-        <br>${activity.comment}
-        <br><div class="text-right text-danger" style="font-size: x-small">${activity.date}</div>
-                --%>
- */
+        if (activityPart.size() != 0) {
+            for (Activity entry : activityPart) {
+                activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
+                        entry.getMember().getEmployee().getFirstName(),
+                        entry.getMember().getProject().getName(),
+                        entry.getAssigment().getTask().getDescription(),
+                        entry.getComment(),
+                        entry.getDate()));
+            }
+        }
         return activityStreams;
     }
 }
