@@ -10,8 +10,7 @@
   <!-- Bootstrap -->
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
-  <link href="webres/css/style.css" rel="stylesheet">
-
+  <%--<link href="webres/css/style.css" rel="stylesheet">--%>
 </head>
 
 <body>
@@ -31,10 +30,20 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/adds">Dashboards</a></li>
-           <%-- <security:authorize url="/delete/">--%>
-              <li><a href="/searchs">Projects</a></li>
-           <%-- </security:authorize>--%>
           </ul>
+
+          <form action="" class="navbar-form navbar-left">
+            <div class="dropdown">
+            <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">first</a></li>
+                <li><a href="#">second</a></li>
+              </ul>
+            </div>
+          </form>
+
+
+
           <form action="" class="navbar-form navbar-left">
             <a href="<c:url value="/tocreateissue" />" class="btn btn-primary form-control">Create issue</a>
           </form>
@@ -48,3 +57,4 @@
       </div>
     </div>
   </div>
+

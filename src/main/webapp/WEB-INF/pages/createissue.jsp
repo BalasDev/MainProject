@@ -19,23 +19,13 @@
 <body>
 <script type="text/javascript">
 
-    /*$.ajax({
-        url: "jsonservlet",
-        type: 'POST',
-        dataType: 'json',
-        data: JSON.stringify(article),
-        contentType: 'application/json',
-        mimeType: 'application/json',
-
-        success: function (data) {*/
 
 
 
     function doAjax(){
 
         var id=project.options[project.selectedIndex].value;
-       /* alert('${pageContext.request.contextPath}/getmember');*/
-       /* var jres =*/ $.ajax({
+       $.ajax({
             url : "getemployees",
             type: 'POST',
             data : JSON.stringify(id),
@@ -43,15 +33,7 @@
             mimeType: 'application/json',
                success: function(data) {
                    var obj = data;
-                   /*for(i in obj){
-                       $('#roleId').append($("", {
-                           value: obj[i].id,
-                           text: obj[i].login
-
-                   }));
-                       alert (obj[i].login)
-                   }
-*/                  $('#member').empty();
+                 $('#member').empty();
                     $('#member').append($("<option> </option>").attr("value"," ").text(" "));
                    $.each(obj, function(key, value) {
 
@@ -76,7 +58,7 @@
   <div id="collapseOne" class="panel-collapse collapse in">
     <div class="form-horizontal">
       <form action="createissue" method="post">
-       <%-- <fieldset style="padding-top: 10px" id="filterForm">--%>
+
         <div class="row" style="padding-top: 10px">
           <div class="col-lg-6 col-md-6 ">
 
@@ -95,8 +77,7 @@
           </div>
           </div>
            <div class="row">
-           <%-- </div>--%>
-           <%-- <div class="col-lg-6 col-md-6">--%>
+
 
             <label class="col-lg-3 control-label" for="member">Assignee</label>
 
@@ -117,12 +98,11 @@
                </div>
            </div>
   <div class="panel-footer "
-        <%--</fieldset>--%>
-           <%--<div class="container">--%>
+
         <div class="col-lg-3 col-lg-6 form-group">
           <button id='create' type="submit" class="btn btn-outline btn-block btn-success">Add </button>
         </div>
-       <%-- </div>--%>
+
       </form>
 
     </div>
