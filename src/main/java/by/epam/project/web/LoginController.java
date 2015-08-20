@@ -30,15 +30,14 @@ public class LoginController {
     TaskService taskService;
 
     Integer startElem;
-    Integer finishElem;
+    Integer countShow = 1;
 
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
-        //  map.put("attachment",attachmentService.getAttachment(1));
         map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
-        startElem=1;
+        startElem = countShow;
         return "dashboard";
     }
 
@@ -56,22 +55,22 @@ public class LoginController {
         List<Activity> activity = activityService.listActivity();
         List<Activity> activityPart = new ArrayList<Activity>();
         List<ActivityStream> activityStreams = new ArrayList<ActivityStream>();
-        finishElem=startElem+1;
-
-            while((startElem<finishElem)&&(startElem<activity.size())){
+        Integer finishElem=startElem+countShow;
+        while ((startElem < (finishElem)) && (startElem < activity.size())) {
             activityPart.addAll(activity.subList(startElem, startElem + 1));
             startElem++;
-            }
+        }
 
-        if (activityPart.size()!=0){
-        for (Activity entry : activityPart) {
-            activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
-                    entry.getMember().getEmployee().getFirstName(),
-                    entry.getMember().getProject().getName(),
-                    entry.getAssigment().getTask().getDescription(),
-                    entry.getComment(),
-                    entry.getDate()));
-        }}
+        if (activityPart.size() != 0) {
+            for (Activity entry : activityPart) {
+                activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
+                        entry.getMember().getEmployee().getFirstName(),
+                        entry.getMember().getProject().getName(),
+                        entry.getAssigment().getTask().getDescription(),
+                        entry.getComment(),
+                        entry.getDate()));
+            }
+        }
         return activityStreams;
     }
 }
