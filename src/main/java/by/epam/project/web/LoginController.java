@@ -29,7 +29,8 @@ public class LoginController {
     AttachmentService attachmentService;
     @Autowired
     TaskService taskService;
-
+    //@Autowired
+    private AuthUser user = new AuthUser();
 
     Integer startElem;
     Integer countShow = 1;
@@ -39,6 +40,7 @@ public class LoginController {
     public String home(Map<String, Object> map) {
         map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
+        map.put("listTask", taskService.getTaskList(user.getCurrentUser()));
         startElem = countShow;
         return "dashboard";
     }

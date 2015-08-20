@@ -89,23 +89,10 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>Key</td>
-                            <td>Summary</td>
-                        </tr>
-
                         <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
                                     ${task.description}
-
-                                        <%-- ${activity.member.employee.lastName} ${activity.member.employee.firstName}
-                                     project:${activity.member.project.name} task:${activity.assigment.task.description}
-                                     <br>${activity.comment}
-                                     <br>
-
-                                     <div class="text-right text-danger"
-                                          style="font-size: x-small">${activity.date}</div>--%>
                                 </td>
                             </tr>
                         </c:forEach>
