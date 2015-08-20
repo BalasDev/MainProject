@@ -29,15 +29,16 @@
         </div>
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
-            <li><a href="/adds">Dashboards</a></li>
+            <li><a href="/">Dashboards</a></li>
           </ul>
 
           <form action="" class="navbar-form navbar-left">
             <div class="dropdown">
             <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">first</a></li>
-                <li><a href="#">second</a></li>
+                <c:forEach items="${listProject}" var="project">
+                  <li><a href="#">${project.name}</a></li>
+                </c:forEach>
               </ul>
             </div>
           </form>

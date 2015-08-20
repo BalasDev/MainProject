@@ -3,10 +3,7 @@ package by.epam.project.web;
 import by.epam.project.domain.Activity;
 import by.epam.project.domain.ActivityStream;
 import by.epam.project.security.AuthUser;
-import by.epam.project.service.ActivityService;
-import by.epam.project.service.AttachmentService;
-import by.epam.project.service.EmployeeService;
-import by.epam.project.service.TaskService;
+import by.epam.project.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +26,8 @@ public class LoginController {
     AttachmentService attachmentService;
     @Autowired
     TaskService taskService;
-    //@Autowired
+    @Autowired
+    ProjectService projectService;
     private AuthUser user = new AuthUser();
 
     Integer startElem;
@@ -38,9 +36,9 @@ public class LoginController {
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
-        map.put("task", taskService.getTask(1));
         map.put("listActivity", activityService.listActivity());
         map.put("listTask", taskService.getTaskList(user.getCurrentUser()));
+        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         startElem = countShow;
         return "dashboard";
     }
