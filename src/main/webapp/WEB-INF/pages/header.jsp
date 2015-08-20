@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=utf8"
          pageEncoding="utf8" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf8">
@@ -11,6 +11,9 @@
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
   <link href="webres/css/style.css" rel="stylesheet">
+  <script src="webres/jquery/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -30,9 +33,17 @@
         </div>
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
-            <li><a href="/adds">Dashboards</a></li>
+           <%-- <li><a href="/">Dashboards</a></li>--%>
            <%-- <security:authorize url="/delete/">--%>
-              <li><a href="/searchs">Projects</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+
+              </ul>
+            </li>
            <%-- </security:authorize>--%>
           </ul>
           <form action="" class="navbar-form navbar-left">
