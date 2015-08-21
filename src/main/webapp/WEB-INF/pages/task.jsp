@@ -41,10 +41,10 @@
 <div class="container">
     <div class="row">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="btn-group">
+                        <%--<div class="btn-group">--%>
 
                             <button class="btn btn-success" id="btnStart">
                                 Start Progress
@@ -57,7 +57,7 @@
                             <button class="btn btn-success" id="btnDone">
                                 Done
                             </button>
-                        </div>
+                        <%--</div>--%>
                     </div>
                     <div class="panel-body">
                         Status:
@@ -70,25 +70,14 @@
             <table class="table table-condensed table-hover table-striped table-bordered">
 
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Login</th>
-                    <th>Role</th>
-                    <th>Position</th>
+                    <th>dfdfdf</th>
+                    <th>dfddfdf</th>
+
                 </tr>
 
-                <c:forEach items="${memberList}" var="member">
-                <tr>
-                    <td> ${member.employee.firstName} </td>
-                    <td> ${member.employee.lastName} </td>
-                    <td> ${member.employee.login} </td>
-                    <td> ${member.employee.position.name} </td>
-                    <td> ${member.role.name} </td>
-                    </c:forEach>
+
             </table>
-            <div class="navbar-form navbar-left">
-                <a href="<c:url value="/toaddmember" />" class="btn btn-primary form-control">Add member</a>
-            </div>
+
         </div>
     </div>
 </div>
