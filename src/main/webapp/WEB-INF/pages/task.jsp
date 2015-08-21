@@ -40,24 +40,24 @@
 
 <div class="container">
     <div class="row">
+
         <div class="row">
             <div class="col-lg-4">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <%--<div class="btn-group">--%>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <div class="btn-group">
+                        <button class="btn btn-default" id="btnStart">
+                            Start Progress
+                        </button>
 
-                            <button class="btn btn-success" id="btnStart">
-                                Start Progress
-                            </button>
+                        <button class="btn btn-default" id="btnResolve">
+                            Resolve Issue
+                        </button>
 
-                            <button class="btn btn-success" id="btnResolve">
-                                Resolve Issue
-                            </button>
-
-                            <button class="btn btn-success" id="btnDone">
-                                Done
-                            </button>
-                        <%--</div>--%>
+                        <button class="btn btn-default" id="btnDone">
+                            Done
+                        </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         Status:
@@ -66,18 +66,30 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-condensed table-hover table-striped table-bordered">
 
-                <tr>
-                    <th>dfdfdf</th>
-                    <th>dfddfdf</th>
-
-                </tr>
+        <div class="container">
+            <div class="row">
+                <button class="btn btn-default" id="btnReport"><i class="fa fa-pencil "></i> Report</button>
+            </div>
+        </div>
 
 
-            </table>
+        <div class="container">
+           <div class="row">
+               <div class="table-responsive">
+                   <table class="table table-condensed table-hover table-striped table-bordered">
 
+                       <tr>
+                           <th>dfdfdf</th>
+                           <th>dfddfdf</th>
+
+                       </tr>
+
+
+                   </table>
+
+               </div>
+           </div>
         </div>
     </div>
 </div>
