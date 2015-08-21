@@ -54,5 +54,8 @@ public class ProjectServiceImpl implements ProjectService {
        return projectDAO.getProjects(login);
     }
 
-
+    @Transactional
+    public Project getProject(Integer id){
+        return projectDAO.getProject(id);
+    }
 }

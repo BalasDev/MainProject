@@ -40,6 +40,7 @@ public class ProjectController {
     public String toCreateProj(Map<String, Object> map) {
 
         map.put("project", new Project());
+        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         return "createproject";
     }
 
@@ -64,12 +65,10 @@ public class ProjectController {
 
 
     @RequestMapping("/tomember")
-    public String toMember(/*Integer id,*/Map<String, Object> map) {
-
-
-
+    public String toMember(Map<String, Object> map) {
         map.put("memberList", projectService.listMember(projectId));
-       // map.put("projectName", projectService.listMember(projectId).get(0).getProject().getName());
+        map.put("project", projectService.getProject(projectId));
+        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         return "projectmembers";
     }
 
@@ -114,8 +113,6 @@ public class ProjectController {
                               @RequestParam("member") Integer employeeId,
                               @RequestParam("description") String description){
 
-
-
         System.out.println(projectId);
         System.out.println(employeeId);
         System.out.println(description);
@@ -131,15 +128,4 @@ public class ProjectController {
         return "redirect:/tomember";
     }
 
-    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addPersonal( Project project,
-                              BindingResult result) {
-        if (result.hasErrors()) {
-            return "/addPersonal";
-        }
-
-        personalService.addPersonal(personal);
-        return "redirect:/";
-    }
-*/
 }

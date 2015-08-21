@@ -24,6 +24,8 @@ public interface ProjectDAO {
 
     public List<Project> getProjects (String login);
 
+    public Project getProject (Integer id);
+
 
 
 

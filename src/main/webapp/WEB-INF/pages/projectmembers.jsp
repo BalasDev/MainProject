@@ -13,7 +13,10 @@
 <div class="container">
     <div class="row">
 
-
+        <div class="panel panel-danger">
+            <div class="panel-heading">Summary</div>
+            <div class="panel-body">${project.name}: ${project.description}</div>
+        </div>
 
 
         <div class="table-responsive">
@@ -34,44 +37,6 @@
                     <td> ${member.employee.login} </td>
                     <td> ${member.employee.position.name} </td>
                     <td> ${member.role.name} </td>
-
-
-                        <%--  <td>
-                            <div class="btn-group">
-
-                              <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${member.id}"><i
-                                      class="fa fa-remove"
-                                      style="color: red"></i>
-                              </a>
-                            </div>
-                          </td>--%>
-
-                        <%--modal--%>
-                        <%--<div class="modal fade" id="delete_${personality.id}">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                        <button class="close" type="button" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Подтверждение удаления</h4>
-                        </div>
-                        <div class="modal-body">
-                        <p class="text-center">Удаление записи пользователя
-                        <strong>${personality.lastName}</strong>
-                        </p>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"
-                        onclick="location.href='<%=request.getContextPath()%>/delete/${personality.id}'">
-                        Да
-                        </button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Отмена
-                        </button>
-                        </div>
-                        </div>
-                        </div>
-                        </div>--%>
-
                     </c:forEach>
             </table>
             <div class="navbar-form navbar-left">
