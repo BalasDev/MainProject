@@ -70,9 +70,14 @@ public class ProjectDAOImpl implements ProjectDAO {
                 "left join p.employees e " +
                 "where e.login=:login";
         Query query = sessionFactory.getCurrentSession().createQuery(stringQuery);
-        query.setParameter("login",login);
+        query.setParameter("login", login);
         List<Project> projects = query.list();
         return projects;
+    }
+
+    public Project getProject(Integer id) {
+        Project project = (Project) sessionFactory.getCurrentSession().get(Project.class, id);
+        return project;
     }
 
 }
