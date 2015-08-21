@@ -34,9 +34,9 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/">Dashboards</a></li>
-          </ul>
 
-          <form action="" class="navbar-form navbar-left">
+
+          <%--<form action="" class="navbar-form navbar-left">
             <div class="dropdown">
             <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -45,8 +45,16 @@
                 </c:forEach>
               </ul>
             </div>
-          </form>
-
+          </form>--%>
+          <li class="dropdown">
+            <a href="<c:url value="#" />" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <c:forEach items="${listProject}" var="project">
+                <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
+              </c:forEach>
+            </ul>
+          </li>
+          </ul>
 
 
           <form action="" class="navbar-form navbar-left">

@@ -11,5 +11,7 @@ public interface TaskDAO {
 
     public List<Task> getTaskLogin(String login);
 
+    public void updateTask(Integer taskId, Integer statusId);
+
 
 }

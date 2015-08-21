@@ -27,6 +27,10 @@ public class TaskServiceImpl implements TaskService{
         return taskDAO.getTaskLogin(login);
     }
 
+    @Transactional
+    public void updateTask(Integer taskId, Integer statusId) {
+        taskDAO.updateTask(taskId,statusId);
+    }
 
 
 }
