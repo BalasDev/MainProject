@@ -99,6 +99,12 @@
                     </div>
                 </div>
             </div>
+                   <div class="col-lg-4">
+                       <p class="text-center">Assigne to ${login}</p>
+                   </div>
+               <div class="col-lg-4">
+                   <button class="btn btn-default pull-right btn-sm RbtnMargin" type="button">Export</button>
+             </div>
         </div>
         <div class="table-responsive">
             <table class="table table-condensed table-hover table-striped table-bordered">

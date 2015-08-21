@@ -3,6 +3,7 @@ package by.epam.project.web;
 import by.epam.project.domain.Employee;
 import by.epam.project.domain.Status;
 import by.epam.project.domain.Task;
+import by.epam.project.security.AuthUser;
 import by.epam.project.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,8 @@ public class TaskController {
 
     @Autowired
     private TaskService taskService;
-
     private Integer taskId;
+    AuthUser user = new AuthUser();
 
     @RequestMapping(value = "/opentask/{id}", method = RequestMethod.GET)
     public String openProject(@PathVariable("id") Integer id) {
@@ -32,8 +33,8 @@ public class TaskController {
     public String toMember(Map<String, Object> map) {
         Task task = taskService.getTask(taskId);
         map.put("task",task);
-       /* map.put("projectName",task.getProject().getName());
-        map.put("status",task.getStatus().getName());*/
+        map.put("login",user.getCurrentUser());
+
         return "task";
     }
 
@@ -43,7 +44,8 @@ public class TaskController {
 
         taskService.updateTask(taskId,id);
         Status status=taskService.getTask(taskId).getStatus();
-        //System.out.println(status.getName());
+
+        System.out.println(status.getName());
         return status;
     }
 }
