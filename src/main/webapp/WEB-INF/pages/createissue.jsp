@@ -17,34 +17,34 @@
 
 </head>
 <body>
-<script type="text/javascript">
+<%--<script type="text/javascript">--%>
 
-    function doAjax() {
+    <%--function doAjax() {--%>
 
-        var id = project.options[project.selectedIndex].value;
-        $.ajax({
-            url: "getemployees",
-            type: 'POST',
-            data: JSON.stringify(id),
-            contentType: 'application/json',
-            mimeType: 'application/json',
-            success: function (data) {
-                var obj = data;
-                $('#member').empty();
-                $('#member').append($("<option> </option>").attr("value", " ").text(" "));
-                $.each(obj, function (key, value) {
+        <%--var id = project.options[project.selectedIndex].value;--%>
+        <%--$.ajax({--%>
+            <%--url: "getemployees",--%>
+            <%--type: 'POST',--%>
+            <%--data: JSON.stringify(id),--%>
+            <%--contentType: 'application/json',--%>
+            <%--mimeType: 'application/json',--%>
+            <%--success: function (data) {--%>
+                <%--var obj = data;--%>
+                <%--$('#member').empty();--%>
+                <%--$('#member').append($("<option> </option>").attr("value", " ").text(" "));--%>
+                <%--$.each(obj, function (key, value) {--%>
 
-                    $('#member').append($("<option></option>")
-                            .
-                            attr("value", value.id)
-                            .text(value.firstName + ' ' + value.lastName));
-                });
+                    <%--$('#member').append($("<option></option>")--%>
+                            <%--.--%>
+                            <%--attr("value", value.id)--%>
+                            <%--.text(value.firstName + ' ' + value.lastName));--%>
+                <%--});--%>
 
 
-            }
-        });
-    }
-</script>
+            <%--}--%>
+        <%--});--%>
+    <%--}--%>
+<%--</script>--%>
 <div class="container">
     <div class="panel panel-warning">
         <div class="panel-heading">
@@ -54,7 +54,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
             <div class="form-horizontal">
-                <div action="createissue" method="post">
+                <form action="createissue" method="post">
 
                 <div class="row" style="padding-top: 10px">
                     <div class="col-lg-6 col-md-6 ">
@@ -103,11 +103,32 @@
                 </form>
 
 
-            </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <div class="row">
+        <div class="col-lg-5">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i class="fa fa-pencil "></i> Report </a>
+                    </div>
+                    <div class="collapse panel-collapse" id="collapse-1">
+                        <div class="panel-body">
+                            <input type="text" class="form-control" id="duration" placeholder="duration">
+                            <textarea class="form-control" rows="3" id="description" placeholder="comment"> </textarea>
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-success btn-block" id="btnAddReport">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webres/jquery/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
