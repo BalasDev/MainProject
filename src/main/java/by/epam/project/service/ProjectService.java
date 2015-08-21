@@ -24,5 +24,5 @@ public interface ProjectService {
 
     public List<Project> getProjects(String login);
 
-    public Project getProject (Integer id);
+
 }

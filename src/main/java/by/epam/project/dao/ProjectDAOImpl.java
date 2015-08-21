@@ -75,9 +75,6 @@ public class ProjectDAOImpl implements ProjectDAO {
         return projects;
     }
 
-    public Project getProject(Integer id) {
-        Project project = (Project) sessionFactory.getCurrentSession().get(Project.class, id);
-        return project;
-    }
+
 
 }

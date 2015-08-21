@@ -77,7 +77,7 @@ public class ProjectController {
     public String toAddMember(Map<String, Object> map) {
 
         map.put("employeeList",projectService.listEmployee());
-        map.put("roleList",projectService.listRole());
+        map.put("roleList", projectService.listRole());
         return "createmember";
     }
 
@@ -120,8 +120,26 @@ public class ProjectController {
         System.out.println(employeeId);
         System.out.println(description);
 
-        issueService.saveIssue(projectId,employeeId,description,user.getCurrentUser());
+        issueService.saveIssue(projectId, employeeId, description, user.getCurrentUser());
 
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/project/{id}")
+    public String projectView(@PathVariable("id") Integer id) {
+        projectId=id;
+        return "redirect:/tomember";
+    }
+
+    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addPersonal( Project project,
+                              BindingResult result) {
+        if (result.hasErrors()) {
+            return "/addPersonal";
+        }
+
+        personalService.addPersonal(personal);
+        return "redirect:/";
+    }
+*/
 }

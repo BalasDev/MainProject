@@ -11,6 +11,10 @@
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
   <%--<link href="webres/css/style.css" rel="stylesheet">--%>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="webres/jquery/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +41,7 @@
             <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <c:forEach items="${listProject}" var="project">
-                  <li><a href="#">${project.name}</a></li>
+                  <li><a type="submit" href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
                 </c:forEach>
               </ul>
             </div>

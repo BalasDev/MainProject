@@ -8,9 +8,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<jsp:include page="footer.jsp"/>
-
-
 <script>
     $(document).ready(function () {
         $("#btnShow").click(function () {
@@ -29,6 +26,7 @@
 </script>
 
 <jsp:include page="header.jsp"/>
+
 <div class="container-fluid">
     <div class="row" style="padding-left: 40px">
         <h3>System Dashboard</h3>
@@ -87,7 +85,7 @@
                         <thead>
 
                         <tr>
-                             <th>Task</th>
+                            <th>Task</th>
                         </tr>
                         </thead>
 
@@ -95,7 +93,7 @@
                         <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
-                                    ${task.description}
+                                        ${task.description}
                                 </td>
                             </tr>
                         </c:forEach>
@@ -109,4 +107,6 @@
     </div>
 
 
-</div><jsp:include page="footer.jsp"/>
+</div>
+
+<jsp:include page="footer.jsp"/>

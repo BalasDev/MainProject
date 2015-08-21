@@ -49,7 +49,6 @@ public class LoginController {
 
     @Transactional
     @RequestMapping(value = "/showMore", method = RequestMethod.POST)
-
     public
     @ResponseBody
     List<ActivityStream> showMore() {

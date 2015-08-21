@@ -5,12 +5,16 @@
 <link href="webres/css/input.css" rel="stylesheet">
 <link href="webres/css/errors.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="webres/jquery/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 <jsp:include page="header.jsp"/>
 <div class="container">
     <div class="row">
 
 
-        <h1>${projectName}</h1>
+
 
         <div class="table-responsive">
             <table class="table table-condensed table-hover table-striped table-bordered">
