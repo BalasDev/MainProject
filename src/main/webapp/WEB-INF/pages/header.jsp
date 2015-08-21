@@ -41,7 +41,7 @@
             <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <c:forEach items="${listProject}" var="project">
-                  <li><a type="submit" href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
+                  <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
                 </c:forEach>
               </ul>
             </div>

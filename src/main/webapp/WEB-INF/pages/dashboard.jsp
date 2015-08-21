@@ -93,7 +93,8 @@
                         <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
-                                        ${task.description}
+                                    <div style="cursor: pointer"
+                                         onclick="location.href='<%=request.getContextPath()%>/task/${task.id}'">${task.description}</div>
                                 </td>
                             </tr>
                         </c:forEach>

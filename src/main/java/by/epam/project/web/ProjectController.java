@@ -26,6 +26,7 @@ public class ProjectController {
     @Autowired
     private IssueService issueService;
     private int projectId;
+    private int taskId;
     private AuthUser user = new AuthUser();
 
 
@@ -56,11 +57,11 @@ public class ProjectController {
 
     }
 
-    @RequestMapping(value = "/openproject/{id}", produces = "text/html", method = RequestMethod.GET)
+    @RequestMapping(value = "/openproject/{id}", method = RequestMethod.GET)
     public String openProject(@PathVariable("id") Integer id,Map<String, Object> map ) {
-      //  map.put("id", id);
         projectId = id;
        return "redirect:/tomember";
+
     }
 
 
@@ -122,10 +123,21 @@ public class ProjectController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/project/{id}")
+    @RequestMapping(value = "/project/{id}", method = RequestMethod.GET)
     public String projectView(@PathVariable("id") Integer id) {
         projectId=id;
-        return "redirect:/tomember";
+       return "redirect:/tomember";
     }
 
+    @RequestMapping(value ="/task/{id}", method = RequestMethod.GET)
+    public String taskId(@PathVariable ("id") Integer id) {
+        taskId=id;
+        return "redirect:/taskView";
+    }
+
+    @RequestMapping(value = "/taskView", method = RequestMethod.GET)
+    public String taskView(Map<String, Object> map){
+
+        return "task";
+    }
 }
