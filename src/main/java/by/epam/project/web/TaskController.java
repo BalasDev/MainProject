@@ -22,7 +22,7 @@ public class TaskController {
 
         Task task = taskService.getTask(id);
         modelAndView.addObject("task",task);
-        map.put("task",task);
+        /*map.put("task",task);*/
         /*map.put("projectName",task.getProject().getName());*/
 
         return "task";
