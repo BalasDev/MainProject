@@ -30,18 +30,17 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/">Dashboards</a></li>
-          </ul>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <c:forEach items="${listProject}" var="project">
+                          <li><a href="#">${project.name}</a></li>
+                      </c:forEach>
+                  </ul>
+              </li>
 
-          <form action="" class="navbar-form navbar-left">
-            <div class="dropdown">
-            <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <c:forEach items="${listProject}" var="project">
-                  <li><a href="#">${project.name}</a></li>
-                </c:forEach>
-              </ul>
-            </div>
-          </form>
+
+          </ul>
 
 
 

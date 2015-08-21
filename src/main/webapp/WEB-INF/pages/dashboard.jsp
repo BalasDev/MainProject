@@ -95,7 +95,9 @@
                         <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
-                                    ${task.description}
+                                    <div> <%--style="cursor: pointer"--%>
+                                    <a href="<c:url value="/opentask/${task.id}"/>">${task.description}</a>
+                                        <%--onclick="location.href='<%=request.getContextPath()%>/opentask/${task.id}'">${task.description}--%></div>
                                 </td>
                             </tr>
                         </c:forEach>
