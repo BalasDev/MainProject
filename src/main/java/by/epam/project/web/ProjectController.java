@@ -26,7 +26,6 @@ public class ProjectController {
     @Autowired
     private IssueService issueService;
     private int projectId;
-    private int taskId;
     private AuthUser user = new AuthUser();
 
 
@@ -129,14 +128,4 @@ public class ProjectController {
        return "redirect:/tomember";
     }
 
-    @RequestMapping(value ="/task/{id}", method = RequestMethod.GET)
-    public String taskId(@PathVariable ("id") Integer id) {
-        taskId=id;
-        return "redirect:/taskView";
-    }
-
-    @RequestMapping(value = "/taskView", method = RequestMethod.GET)
-    public String taskView(Map<String, Object> map){
-        return "task";
-    }
 }

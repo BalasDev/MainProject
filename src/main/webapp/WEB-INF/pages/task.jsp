@@ -3,16 +3,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <!-- Bootstrap -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="webres/jquery/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
 <link href="webres/css/input.css" rel="stylesheet">
-<link href="webres/css/errors.css" rel="stylesheet">
+
+
+<jsp:include page="header.jsp"/>
 
 <script>
     $(document).ready(function () {
@@ -29,7 +26,7 @@
                     $("#btnResolve").removeAttr('disabled');
                     $("#btnDone").removeAttr('disabled');
                     $("#lblStatus").text(data.name);
-                                  }
+                }
             });
 
 
@@ -73,8 +70,6 @@
         });
     });
 </script>
-
-<jsp:include page="header.jsp"/>
 
 <div class="container">
 
