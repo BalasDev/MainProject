@@ -1,6 +1,7 @@
 package by.epam.project.domain;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class ActivityStream {
     private String lastName;

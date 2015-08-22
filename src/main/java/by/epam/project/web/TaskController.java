@@ -24,6 +24,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
     private Integer taskId;
+    @Autowired
     private ActivityService activityService;
     AuthUser user = new AuthUser();
 
