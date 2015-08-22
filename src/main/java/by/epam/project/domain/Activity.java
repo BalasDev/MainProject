@@ -32,6 +32,8 @@ public class Activity {
     @JsonIgnore
     private Assigment assigment;
 
+
+
     public Integer getId() {
         return id;
     }

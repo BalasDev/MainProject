@@ -7,4 +7,5 @@ import java.util.List;
 public interface ActivityDAO {
     public Activity getActivity (Integer id);
     public List<Activity> listActivity();
+    public void addActivity(Activity activity);
 }

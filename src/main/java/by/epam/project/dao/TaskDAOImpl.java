@@ -22,10 +22,6 @@ public class TaskDAOImpl implements TaskDAO {
 
 
     public List<Task> getTaskLogin (String login) {
-        /*String stringQuery = "select distinct t from Task t " +
-                "left join t.project p " +
-                "left join p.employees e " +
-                "where e.login=:login";*/
         String stringQuery = "select distinct t from Assigment a " +
                 "inner join a.task t " +
                 "inner join a.member m " +

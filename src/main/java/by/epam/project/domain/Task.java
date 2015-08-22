@@ -37,6 +37,17 @@ public class Task {
     @JoinColumn(name="STATUSID")
     private Status status;
 
+    @OneToOne(mappedBy="task", cascade=CascadeType.ALL)
+    private Assigment assigment;
+
+    public Assigment getAssigment() {
+        return assigment;
+    }
+
+    public void setAssigment(Assigment assigment) {
+        this.assigment = assigment;
+    }
+
     public Integer getId() {
         return id;
     }

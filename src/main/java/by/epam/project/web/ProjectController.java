@@ -40,7 +40,6 @@ public class ProjectController {
     public String toCreateProj(Map<String, Object> map) {
 
         map.put("project", new Project());
-        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         return "createproject";
     }
 

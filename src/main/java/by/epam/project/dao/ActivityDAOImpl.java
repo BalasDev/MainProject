@@ -18,7 +18,11 @@ public class ActivityDAOImpl implements ActivityDAO {
         return activity;
     }
 
-    public List<Activity> listActivity(){
+    public List<Activity> listActivity() {
         return sessionFactory.getCurrentSession().createQuery("from Activity order by _DATE DESC").list();
+    }
+
+    public void addActivity(Activity activity) {
+        sessionFactory.getCurrentSession().save(activity);
     }
 }

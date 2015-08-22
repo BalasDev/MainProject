@@ -96,30 +96,36 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div id="accordion" class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">
-                        <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
-                                class="fa fa-pencil"></i> Report </a>
-                    </div>
-                    <div class="collapse panel-collapse" id="collapse-1">
-                        <div class="panel-body">
-                            <input type="text" class="form-control" id="duration" placeholder="duration">
-                            <textarea placeholder="comment" class="form-control" rows="3"></textarea>
+        <form method="post" action="createActivity">
+            <div class="col-lg-4">
+                <div id="accordion" class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
+                                    class="fa fa-pencil"></i> Report </a>
                         </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-success btn-block" id="btnAddReport">Add</button>
+                        <div class="collapse panel-collapse" id="collapse-1">
+                            <div class="panel-body">
+                                <input type="text" class="form-control" id="duration" name="duration"
+                                       placeholder="duration">
+                                <textarea placeholder="comment" class="form-control" rows="3" id="comment"
+                                          name="comment"></textarea>
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="col-lg-2">
             <p class="text-center well-sm">Assigne to ${login}</p>
         </div>
         <div class="col-lg-2">
-            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>  Export</button>
+            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
+                Export
+            </button>
         </div>
     </div>
 

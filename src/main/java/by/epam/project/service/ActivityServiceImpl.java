@@ -23,4 +23,8 @@ public class ActivityServiceImpl implements ActivityService {
         return activityDAO.listActivity();
     }
 
+    @Transactional
+    public void addActivity(Activity activity){
+        activityDAO.addActivity(activity);
+    }
 }
