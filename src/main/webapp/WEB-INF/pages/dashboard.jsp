@@ -8,8 +8,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<jsp:include page="footer.jsp"/>
-
 
 <script>
     $(document).ready(function () {
