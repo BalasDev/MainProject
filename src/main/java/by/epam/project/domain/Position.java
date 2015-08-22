@@ -15,9 +15,6 @@ public class Position {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy="position")
-    private List<Employee> employees;
-
     public Integer getId() {
         return id;
     }
@@ -34,11 +31,4 @@ public class Position {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 }

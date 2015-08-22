@@ -18,13 +18,13 @@ public class Project {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
     @JoinTable(name="MEMBER",
             joinColumns={@JoinColumn(name="PROJECTID")},
             inverseJoinColumns={@JoinColumn(name="ROLEID")})
     private List<Role> roles;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
     @JoinTable(name="MEMBER",
             joinColumns={@JoinColumn(name="PROJECTID")},
             inverseJoinColumns={@JoinColumn(name="EMPLOYEEID")})
