@@ -17,25 +17,59 @@
 <script>
     $(document).ready(function () {
         $("#btnStart").click(function () {
-            $("#btnStart").attr('disabled', true);
-            $("#btnResolve").removeAttr('disabled');
-            $("#btnDone").removeAttr('disabled');
-            $("#lblStatus").text('started');
+            var s;
+            $.ajax({
+                url: "updatestatus",
+                type: 'POST',
+                data: JSON.stringify(2),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                success: function (data) {
+                    $("#btnStart").attr('disabled', true);
+                    $("#btnResolve").removeAttr('disabled');
+                    $("#btnDone").removeAttr('disabled');
+                    $("#lblStatus").text(data.name);
+                                  }
+            });
+
+
 
         });
 
         $("#btnResolve").click(function () {
-            $("#btnStart").removeAttr('disabled');
-            $("#btnResolve").attr('disabled', true);
-            $("#btnDone").removeAttr('disabled');
-            $("#lblStatus").text('resolved');
+
+            $.ajax({
+                url: "updatestatus",
+                type: 'POST',
+                data: JSON.stringify(3),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                success: function (data) {
+                    $("#btnStart").removeAttr('disabled');
+                    $("#btnResolve").attr('disabled', true);
+                    $("#btnDone").removeAttr('disabled');
+                    $("#lblStatus").text(data.name);
+                }
+            });
+
         });
 
         $("#btnDone").click(function () {
-            $("#btnStart").removeAttr('disabled');
-            $("#btnResolve").removeAttr('disabled');
-            $("#btnDone").attr('disabled', true);
-            $("#lblStatus").text('finished');
+            $.ajax({
+                url: "updatestatus",
+                type: 'POST',
+                data: JSON.stringify(4),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                success: function (data) {
+                    $("#btnStart").removeAttr('disabled');
+                    $("#btnResolve").removeAttr('disabled');
+                    $("#btnDone").attr('disabled', true);
+                    $("#lblStatus").text(data.name);
+
+                }
+            });
+
         });
     });
 </script>
@@ -64,10 +98,16 @@
                     </div>
                     <div class="panel-body">
                         Status:
-                        <label id="lblStatus">fgfgfg</label>
+                        <label id="lblStatus">${task.status.name}</label>
                     </div>
                 </div>
             </div>
+                   <div class="col-lg-4">
+                       <p class="text-center">Assigne to ${login}</p>
+                   </div>
+               <div class="col-lg-4">
+                   <button class="btn btn-default pull-right btn-sm RbtnMargin" type="button">Export</button>
+             </div>
         </div>
 
         <div class="row">

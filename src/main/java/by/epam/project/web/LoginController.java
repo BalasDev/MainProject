@@ -47,7 +47,7 @@ public class LoginController {
         return "login";
     }
 
-    @Transactional
+
     @RequestMapping(value = "/showMore", method = RequestMethod.POST)
     public
     @ResponseBody
