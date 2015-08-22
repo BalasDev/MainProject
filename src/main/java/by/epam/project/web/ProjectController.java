@@ -137,7 +137,6 @@ public class ProjectController {
 
     @RequestMapping(value = "/taskView", method = RequestMethod.GET)
     public String taskView(Map<String, Object> map){
-
         return "task";
     }
 }

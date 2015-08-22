@@ -6,68 +6,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-  <!-- Bootstrap -->
-  <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-  <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
-  <%--<link href="webres/css/style.css" rel="stylesheet">--%>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="webres/jquery/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <!-- Bootstrap -->
+    <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="webres/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div class="containerNbar">
-  <div class="rowNbar">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
-            <span class="sr-only">Открыть навигацию</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/" class="navbar-brand"><i class="fa fa-home pull-left fa-border"></i></a>
-        </div>
-        <div class="collapse navbar-collapse" id="responsive-menu">
-          <ul class="nav navbar-nav">
-            <li><a href="/">Dashboards</a></li>
+    <div class="rowNbar">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                        <span class="sr-only">Открыть навигацию</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand"><i class="fa fa-home pull-left fa-border"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="responsive-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Dashboards</a></li>
 
 
-          <%--<form action="" class="navbar-form navbar-left">
-            <div class="dropdown">
-            <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <c:forEach items="${listProject}" var="project">
-                  <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
-                </c:forEach>
-              </ul>
+                        <%--<form action="" class="navbar-form navbar-left">
+                          <div class="dropdown">
+                          <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <c:forEach items="${listProject}" var="project">
+                                <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
+                              </c:forEach>
+                            </ul>
+                          </div>
+                        </form>--%>
+
+                        <li class="dropdown">
+                            <a href="<c:url value="#" />" class="dropdown-toggle" data-toggle="dropdown">Projects <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <c:forEach items="${listProject}" var="project">
+                                    <li>
+                                        <a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <form action="" class="navbar-form navbar-left">
+                        <a href="<c:url value="/tocreateissue" />" class="btn btn-primary form-control">Create issue</a>
+                    </form>
+                    <form action="" class="navbar-form navbar-left">
+                        <a href="<c:url value="/toprojectadministration" />" class="btn btn-primary form-control">Project
+                            administration</a>
+                    </form>
+                    <form action="" class="navbar-form navbar-right">
+                        <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Exit</a>
+                    </form>
+                </div>
             </div>
-          </form>--%>
-          <li class="dropdown">
-            <a href="<c:url value="#" />" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <c:forEach items="${listProject}" var="project">
-                <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
-              </c:forEach>
-            </ul>
-          </li>
-          </ul>
-
-
-          <form action="" class="navbar-form navbar-left">
-            <a href="<c:url value="/tocreateissue" />" class="btn btn-primary form-control">Create issue</a>
-          </form>
-          <form action="" class="navbar-form navbar-left">
-            <a href="<c:url value="/toprojectadministration" />" class="btn btn-primary form-control">Project administration</a>
-          </form>
-          <form action="" class="navbar-form navbar-right">
-            <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Exit</a>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 

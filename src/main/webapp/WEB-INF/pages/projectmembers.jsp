@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
 
-        <div class="panel panel-danger">
+        <div class="panel panel-default">
             <div class="panel-heading">Summary</div>
             <div class="panel-body">${project.name}: ${project.description}</div>
         </div>
