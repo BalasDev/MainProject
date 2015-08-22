@@ -30,7 +30,6 @@
             });
 
 
-
         });
 
         $("#btnResolve").click(function () {
@@ -73,11 +72,11 @@
 
 <div class="container">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">
-                        <div class="btn-group">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <div class="btn-group">
                         <button class="btn btn-default" id="btnStart">
                             Start Progress
                         </button>
@@ -89,43 +88,44 @@
                         <button class="btn btn-default" id="btnDone">
                             Done
                         </button>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        Status:
-                        <label id="lblStatus">${task.status.name}</label>
                     </div>
                 </div>
+                <div class="panel-body">
+                    Status:
+                    <label id="lblStatus">${task.status.name}</label>
+                </div>
             </div>
-                   <div class="col-lg-4">
-                       <p class="text-center">Assigne to ${login}</p>
-                   </div>
-               <div class="col-lg-4">
-                   <button class="btn btn-default pull-right btn-sm RbtnMargin" type="button">Export</button>
-             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-4">
-                <div id="accordion" class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i class="fa fa-pencil "></i> Report </a>
+        <div class="col-lg-4">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
+                                class="fa fa-pencil"></i> Report </a>
+                    </div>
+                    <div class="collapse panel-collapse" id="collapse-1">
+                        <div class="panel-body">
+                            <input type="text" class="form-control" id="duration" placeholder="duration">
+                            <textarea placeholder="comment" class="form-control" rows="3"></textarea>
                         </div>
-                        <div class="collapse panel-collapse" id="collapse-1">
-                            <div class="panel-body">
-                                <input type="text" class="form-control" id="duration" placeholder="duration">
-                                <textarea placeholder="comment" class="form-control" rows="3" ></textarea>
-                            </div>
-                            <div class="panel-footer">
-                                <button class="btn btn-success btn-block" id="btnAddReport">Add</button>
-                            </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-success btn-block" id="btnAddReport">Add</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-lg-2">
+            <p class="text-center well-sm">Assigne to ${login}</p>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>  Export</button>
+        </div>
+    </div>
 
+    <div class="row">
+
+    </div>
 
 
 </div>
