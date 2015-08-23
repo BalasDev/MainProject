@@ -27,10 +27,12 @@ public class Activity {
     @JsonIgnore
     private Member member;
 
-    @ManyToOne
-    @JoinColumn(name = "ASSIGMENTID")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "ASSIGMENTID", nullable = false)
     @JsonIgnore
     private Assigment assigment;
+
+
 
 
 

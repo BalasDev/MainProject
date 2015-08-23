@@ -1,5 +1,6 @@
 package by.epam.project.dao;
 
+import by.epam.project.domain.Activity;
 import by.epam.project.domain.Status;
 import by.epam.project.domain.Task;
 import org.hibernate.Query;
@@ -45,6 +46,18 @@ public class TaskDAOImpl implements TaskDAO {
 
 
 
+    }
+
+    public List<Activity> getTaskActivity (Integer id) {
+        String stringQuery = "select distinct a from Activity a " +
+                "inner join a.assigment s " +
+                "inner join s.task t " +
+                "where t.id=:id order by _DATE DESC";
+        Query query = sessionFactory.getCurrentSession().createQuery(stringQuery);
+        query.setParameter("id", id);
+        System.out.println("Current login is " + id);
+        List<Activity> activities = query.list();
+        return activities;
     }
 }
 

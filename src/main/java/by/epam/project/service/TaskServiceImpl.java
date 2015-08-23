@@ -1,6 +1,7 @@
 package by.epam.project.service;
 
 import by.epam.project.dao.TaskDAO;
+import by.epam.project.domain.Activity;
 import by.epam.project.domain.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,8 @@ public class TaskServiceImpl implements TaskService{
         taskDAO.updateTask(taskId,statusId);
     }
 
-
+    @Transactional
+    public List<Activity> getTaskActivity (Integer id){
+       return taskDAO.getTaskActivity(id);
+    }
 }
