@@ -3,6 +3,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <link href="webres/css/dashboard.css" rel="stylesheet">
+<link href="webres/css/style.css" rel="stylesheet">
+
 
 
 <jsp:include page="header.jsp"/>
