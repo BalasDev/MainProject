@@ -6,7 +6,7 @@
 <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
-<link href="webres/css/input.css" rel="stylesheet">
+<%--<link href="webres/css/input.css" rel="stylesheet">--%>
 
 
 <jsp:include page="header.jsp"/>
@@ -96,8 +96,31 @@
                 </div>
             </div>
         </div>
-        <form method="post" action="createActivity">
-            <div class="col-lg-4">
+        <div class="col-lg-4">
+            <form:form method="post" action="save.html" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <input type="file" name="file"/>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <input class="btn btn-default btn-block" type="submit" value="attach"/>
+                    </div>
+                </div>
+            </form:form>
+        </div>
+        <div class="col-lg-2">
+            <p class="text-center well-sm">Assigne to ${login}</p>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
+                Export
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <form method="post" action="createActivity">
                 <div id="accordion" class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
@@ -117,20 +140,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <div class="col-lg-2">
-            <p class="text-center well-sm">Assigne to ${login}</p>
+            </form>
         </div>
-        <div class="col-lg-2">
-            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
-                Export
-            </button>
-        </div>
-    </div>
-
-    <div class="row">
-
     </div>
 
     <div class="row">
@@ -157,7 +168,29 @@
 
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="frame" style="height: 60%">
+                <div class="rowStyle scroll" style="height: 400px">
+                    <table class="table table-bordered" id="tblActiv">
+                        <th class="text-center">Attachments</th>
+                        <%--<c:forEach items="${listActivity}" var="activity">--%>
+                            <%--<tr>--%>
+                                <%--<td>--%>
+                                        <%--${activity.member.employee.lastName} ${activity.member.employee.firstName}--%>
+                                    <%--project:${activity.member.project.name} task:${activity.assigment.task.description}--%>
+                                    <%--<br>${activity.comment}--%>
+                                    <%--<br>--%>
 
+                                    <%--<div class="text-right text-danger"--%>
+                                         <%--style="font-size: x-small">${activity.date}</div>--%>
+                                <%--</td>--%>
+                            <%--</tr>--%>
+                        <%--</c:forEach>--%>
+                    </table>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 </div>
