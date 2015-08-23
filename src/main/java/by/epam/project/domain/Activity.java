@@ -1,6 +1,7 @@
 package by.epam.project.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,6 +16,8 @@ public class Activity {
     private Integer id;
 
     @Column(name = "_DATE")
+    /*@Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yy-dd-mm HH:MM")*/
     private Date date;
 
     @Column(name = "DURATION")

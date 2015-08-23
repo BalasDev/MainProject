@@ -19,6 +19,7 @@
 <script src="webres/jquery/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
 
 <div class="containerNbar">

@@ -13,9 +13,14 @@
                     function (data) {
                         var activity = data;
                         $.each(activity, function (key, value) {
+                            var d = new Date(value.date);
+                            /*formattedDate.format();
+                            alert(formattedDate);*/
                             $("#tblActiv").append('<tr><td>' + value.lastName + ' ' + value.firstName +
                                     ' project:' + value.project + ' task:' + value.task + '<br>' + value.comment +
-                                    '<br><div class="text-right text-danger" style="font-size: x-small">' + value.date +
+                                    '<br><div class="text-right text-danger" style="font-size: x-small">' +
+                                    /*$.datepicker.formatDate('dd mm yy ',d)*/ value.date
+                                    +
                                     '</div></td></tr>');
                         });
                     });

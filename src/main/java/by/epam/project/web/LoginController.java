@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Controller
@@ -60,7 +62,8 @@ public class LoginController {
             activityPart.addAll(activity.subList(startElem, startElem + 1));
             startElem++;
         }
-
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy  HH:mm", Locale.getDefault());
+        String sdt;
         if (activityPart.size() != 0) {
             for (Activity entry : activityPart) {
                 activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
@@ -68,7 +71,9 @@ public class LoginController {
                         entry.getMember().getProject().getName(),
                         entry.getAssigment().getTask().getDescription(),
                         entry.getComment(),
-                        entry.getDate()));
+                        sdt= sdf.format( entry.getDate())
+                       ));
+                System.out.println(sdt);
             }
         }
         return activityStreams;
