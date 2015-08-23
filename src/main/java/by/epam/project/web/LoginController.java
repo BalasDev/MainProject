@@ -62,8 +62,7 @@ public class LoginController {
             activityPart.addAll(activity.subList(startElem, startElem + 1));
             startElem++;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy  HH:mm", Locale.getDefault());
-        String sdt;
+
         if (activityPart.size() != 0) {
             for (Activity entry : activityPart) {
                 activityStreams.add(new ActivityStream(entry.getMember().getEmployee().getLastName(),
@@ -71,9 +70,9 @@ public class LoginController {
                         entry.getMember().getProject().getName(),
                         entry.getAssigment().getTask().getDescription(),
                         entry.getComment(),
-                        sdt= sdf.format( entry.getDate())
+                        entry.getDate()
                        ));
-                System.out.println(sdt);
+
             }
         }
         return activityStreams;

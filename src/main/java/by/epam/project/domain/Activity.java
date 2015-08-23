@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 
 @Entity
@@ -48,8 +51,17 @@ public class Activity {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        String stringDate = date.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy  HH:mm", Locale.getDefault());
+        String sdt= sdf.format(date);
+       /* Date dateParse = null;
+        try {
+            dateParse = new SimpleDateFormat("dd MM yyyy HH:mm").parse(stringDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+        return sdt;
     }
 
     public void setDate(Date date) {

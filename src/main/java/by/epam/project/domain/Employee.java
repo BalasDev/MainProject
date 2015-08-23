@@ -36,6 +36,11 @@ public class Employee {
     @JsonIgnore
     private Position position;
 
+    @ManyToMany(mappedBy = "employees")
+    @JsonIgnore
+    private List<Project> projects;
+
+
     public Integer getId() {
         return id;
     }

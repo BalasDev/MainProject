@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -19,7 +22,9 @@ public class ActivityDAOImpl implements ActivityDAO {
     }
 
     public List<Activity> listActivity() {
+        //List<Activity> activities = new ArrayList<Activity>();
         return sessionFactory.getCurrentSession().createQuery("from Activity order by _DATE DESC").list();
+
     }
 
     public void addActivity(Activity activity) {
