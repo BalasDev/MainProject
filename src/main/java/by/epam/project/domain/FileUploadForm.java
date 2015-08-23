@@ -3,17 +3,14 @@ package by.epam.project.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 public class FileUploadForm {
-    public List<MultipartFile> getFiles() {
-        return files;
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
     }
 
-    public void setFiles(List<MultipartFile> files) {
-        this.files = files;
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
-
-    private List<MultipartFile> files;
-
 }
