@@ -1,6 +1,7 @@
 package by.epam.project.dao;
 
 import by.epam.project.domain.Activity;
+import by.epam.project.domain.Task;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,9 +28,12 @@ public class ActivityDAOImpl implements ActivityDAO {
 
     }
 
-    public void addActivity(Activity activity) {
-
-        String query = " ";
+    public void addActivity(Task task,String comment,Integer duration) {
+        Activity activity= new Activity();
+        activity.setComment(comment);
+        activity.setDuration(duration);
+        activity.setAssigment(task.getAssigment());
+        activity.setMember(task.getAssigment().getMember());
         sessionFactory.getCurrentSession().save(activity);
     }
 }

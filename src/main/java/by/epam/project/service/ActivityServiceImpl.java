@@ -2,6 +2,7 @@ package by.epam.project.service;
 
 import by.epam.project.dao.ActivityDAO;
 import by.epam.project.domain.Activity;
+import by.epam.project.domain.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Transactional
-    public void addActivity(Activity activity){
-        activityDAO.addActivity(activity);
+    public void addActivity(Task task,String comment,Integer duration){
+        activityDAO.addActivity(task,comment,duration);
     }
         }

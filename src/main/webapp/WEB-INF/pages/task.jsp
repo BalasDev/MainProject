@@ -123,9 +123,13 @@
             <p class="text-center well-sm">Assigne to ${login}</p>
         </div>
         <div class="col-lg-2">
-            <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
+            <button class="btn btn-default pull-right btn-sm" type="button"
+                    onclick="location.href='<%=request.getContextPath()%>/export/${task.id}'"><i class="fa fa-external-link-square"></i>
                 Export
             </button>
+
+
+
         </div>
     </div>
 

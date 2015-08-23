@@ -1,9 +1,6 @@
 package by.epam.project.web;
 
-import by.epam.project.domain.Activity;
-import by.epam.project.domain.Employee;
-import by.epam.project.domain.Status;
-import by.epam.project.domain.Task;
+import by.epam.project.domain.*;
 import by.epam.project.security.AuthUser;
 import by.epam.project.service.ActivityService;
 import by.epam.project.service.TaskService;
@@ -65,13 +62,27 @@ public class TaskController {
     @RequestMapping(value = "/createActivity", method = RequestMethod.POST)
      public String createActivity(@ModelAttribute("duration") Integer duration, @ModelAttribute("comment") String comment){
         Task task = taskService.getTask(taskId);
-        Activity activity= new Activity();
+        /*Activity activity= new Activity();
         activity.setComment(comment);
         activity.setDuration(duration);
         activity.setAssigment(task.getAssigment());
-        activity.setMember(task.getAssigment().getMember());
-        activityService.addActivity(activity);
+        activity.setMember(task.getAssigment().getMember());*/
+        activityService.addActivity(task, comment, duration);
         return "redirect:/totask";
     }
 
+    @RequestMapping(value="/export/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    ExportXML getCoffeeInXML(@PathVariable Integer id) {
+
+        List<Activity> activities = taskService.getTaskActivity(id);
+        ExportXML exportXML = new ExportXML();
+        Export export = new Export();
+        for(Activity activity:activities){
+           export.setLastName(activity.getMember().getEmployee().getLastName());
+           exportXML.getExportData().add(export);
+        }
+
+       return exportXML;
+    }
 }
