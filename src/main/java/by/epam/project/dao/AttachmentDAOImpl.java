@@ -1,6 +1,7 @@
 package by.epam.project.dao;
 
-import com.sun.xml.internal.ws.api.message.Attachment;
+
+import by.epam.project.domain.Attachment;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

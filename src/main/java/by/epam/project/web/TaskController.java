@@ -40,6 +40,7 @@ public class TaskController {
         Task task = taskService.getTask(taskId);
         map.put("task",task);
         map.put("login", user.getCurrentUser());
+        map.put("listActivity",taskService.getTaskActivity(taskId));
 
         return "task";
     }

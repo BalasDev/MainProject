@@ -1,10 +1,12 @@
 package by.epam.project.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ATTACHMENT")
 public class Attachment {
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,13 +21,14 @@ public class Attachment {
     @Column(name = "DESCPRITION")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "PROJECTID")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "PROJECTID", nullable = false)
     private Project project;
 
     @OneToOne
     @JoinColumn(name = "TASKID")
     private Task task;
+
 
     public Integer getId() {
         return id;

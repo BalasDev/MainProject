@@ -1,10 +1,10 @@
 package by.epam.project.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ASSIGMENT")
-
 public class Assigment {
     @Id
     @Column(name = "ID")
@@ -15,21 +15,15 @@ public class Assigment {
     @JoinColumn(name = "MEMBERID")
     private Member member;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
-
     @OneToOne
     @JoinColumn(name = "TASKID")
     private Task task;
 
-    public Task getTask() {
-        return task;
-    }
+    @Column(name = "DESCRIPTION")
+    private String description;
 
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "assigment")
+    private List<Activity> activities;
 
     public Integer getId() {
         return id;
@@ -47,11 +41,27 @@ public class Assigment {
         this.member = member;
     }
 
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }

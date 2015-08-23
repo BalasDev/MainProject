@@ -133,6 +133,32 @@
 
     </div>
 
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="frame" style="height: 60%">
+                <div class="rowStyle scroll" style="height: 400px">
+                    <table class="table" id="tblActiv">
+                        <th class="text-center">Activity</th>
+                        <c:forEach items="${listActivity}" var="activity">
+                            <tr>
+                                <td>
+                                        ${activity.member.employee.lastName} ${activity.member.employee.firstName}
+                                    project:${activity.member.project.name} task:${activity.assigment.task.description}
+                                    <br>${activity.comment}
+                                    <br>
+
+                                    <div class="text-right text-danger"
+                                         style="font-size: x-small">${activity.date}</div>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
