@@ -32,7 +32,7 @@ public class LoginController {
     private AuthUser user = new AuthUser();
 
     Integer startElem;
-    Integer countShow = 1;
+    Integer countShow = 5;
 
 
     @RequestMapping("/")

@@ -137,7 +137,7 @@
         <div class="col-lg-6">
             <div class="frame" style="height: 60%">
                 <div class="rowStyle scroll" style="height: 400px">
-                    <table class="table" id="tblActiv">
+                    <table class="table table-bordered" id="tblActiv">
                         <th class="text-center">Activity</th>
                         <c:forEach items="${listActivity}" var="activity">
                             <tr>
