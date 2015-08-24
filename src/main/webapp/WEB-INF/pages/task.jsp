@@ -122,8 +122,56 @@
                         <label id="lblStatus">${task.status.name}</label>
                     </div>
                 </div>
-                <form method="post" action="createActivity">
-                    <div id="accordion" class="panel-group">
+
+                <div id="accordion" class="panel-group">
+                    <%--<form method="post" action="createActivity">--%>
+                    <%--<div class="panel panel-default">--%>
+                    <%--<div class="panel-heading text-center">--%>
+                    <%--<a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i--%>
+                    <%--class="fa fa-pencil"></i> Report </a>--%>
+                    <%--</div>--%>
+                    <%--<div class="collapse panel-collapse" id="collapse-1">--%>
+                    <%--<div class="panel-body">--%>
+                    <%--<input type="text" class="form-control" id="duration" name="duration"--%>
+                    <%--placeholder="duration">--%>
+                    <%--<textarea placeholder="comment" class="form-control" rows="3" id="comment"--%>
+                    <%--name="comment"></textarea>--%>
+                    <%--</div>--%>
+                    <%--<div class="panel-footer">--%>
+                    <%--<button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add--%>
+                    <%--</button>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--</form>--%>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="container-fluid">
+
+                <div id="accordion" class="panel-group">
+                    <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <a href="#collapse-2" data-parent="#accordion" data-toggle="collapse"> <i class="fa fa-paperclip"></i> Attach file </a>
+                            </div>
+                            <div class="collapse panel-collapse" id="collapse-2">
+                                <div class="panel-body">
+                                    <input class="well-sm" type="file" name="file"
+                                           style="padding-top: 5px;padding-bottom: 15px;"/>
+                                    <input class="form-control" type="text" name="description" id="description"
+                                           placeholder="description">
+                                </div>
+                                <div class="panel-footer text-center">
+                                    <input class="btn btn-default btn-block" type="submit" value="attach"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form:form>
+
+                    <form method="post" action="createActivity">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
                                 <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
@@ -131,42 +179,39 @@
                             </div>
                             <div class="collapse panel-collapse" id="collapse-1">
                                 <div class="panel-body">
-                                    <input type="text" class="form-control" id="duration" name="duration"
+                                    <input type="text" class="form-control well-sm" id="duration" name="duration"
                                            placeholder="duration">
-                                <textarea placeholder="comment" class="form-control" rows="3" id="comment"
-                                          name="comment"></textarea>
+                                    <textarea placeholder="comment" class="form-control" rows="3" id="comment"
+                                              name="comment"></textarea>
                                 </div>
                                 <div class="panel-footer">
-                                    <button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add
+                                    <button class="btn btn-default btn-block" id="btnAddReport" type="submit">Add
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
 
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="container-fluid">
-                <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
-                    <div class="panel panel-default panel">
+                <%--<form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">--%>
+                <%--<div class="panel panel-default panel">--%>
 
-                        <div class="panel-body">
-                            <input class="well-sm" type="file" name="file" style="padding-top: 5px;padding-bottom: 15px;"/>
-                            <input class="form-control" type="text" name="description" id="description"
-                                   placeholder="description">
-                        </div>
-                        <div class="panel-footer text-center">
-                            <input class="btn btn-default btn-block" type="submit" value="attach"/>
-                        </div>
-                    </div>
-                </form:form>
+                <%--<div class="panel-body">--%>
+                <%--<input class="well-sm" type="file" name="file"--%>
+                <%--style="padding-top: 5px;padding-bottom: 15px;"/>--%>
+                <%--<input class="form-control" type="text" name="description" id="description"--%>
+                <%--placeholder="description">--%>
+                <%--</div>--%>
+                <%--<div class="panel-footer text-center">--%>
+                <%--<input class="btn btn-default btn-block" type="submit" value="attach"/>--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</form:form>--%>
             </div>
 
         </div>
         <div class="col-lg-2">
-            <p class="text-center well"><i class="fa fa-user fa-1x"></i>   Assignee to ${login}</p>
+            <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to ${login}</p>
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
