@@ -83,7 +83,7 @@ public class TaskController {
     @RequestMapping(value = "/createActivity", method = RequestMethod.POST)
      public String createActivity(@ModelAttribute("duration") Integer duration, @ModelAttribute("comment") String comment){
         Task task = taskService.getTask(taskId);
-        activityService.addActivity(duration, comment, task.getAssigment().getMember(),task.getAssigment());
+        activityService.addActivity(duration, comment, task.getAssigment().getMember(), task.getAssigment());
         return "redirect:/totask";
     }
 
@@ -114,8 +114,9 @@ public class TaskController {
 
         List<Activity> activities = taskService.getTaskActivity(id);
         ExportXML exportXML = new ExportXML();
-        Export export = new Export();
+
         for(Activity activity:activities){
+           Export export = new Export();
            export.setLastName(activity.getMember().getEmployee().getLastName());
            export.setFirstName(activity.getMember().getEmployee().getFirstName());
            export.setProjectName(activity.getAssigment().getTask().getProject().getName());

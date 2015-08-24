@@ -72,6 +72,9 @@
                         <a href="<c:url value="/toprojectadministration" />" class="btn btn-primary form-control">Project
                             administration</a>
                     </form>
+                    <form action="" class="navbar-form navbar-left">
+                        <a href="<c:url value="/touserregistration" />" class="btn btn-primary form-control">User registration</a>
+                    </form>
                     <form action="" class="navbar-form navbar-right">
                         <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Exit</a>
                     </form>

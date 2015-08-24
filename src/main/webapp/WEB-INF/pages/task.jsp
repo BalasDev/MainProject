@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <!-- Bootstrap -->
 <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
@@ -170,7 +171,7 @@
 
         </div>
         <div class="col-lg-2">
-            <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to ${login}</p>
+            <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to <%--${login}--%><sec:authentication property="principal.username" /></p>
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default pull-right btn-sm" type="button"
