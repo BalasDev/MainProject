@@ -13,28 +13,32 @@
 
 <script>
     $(document).ready(function () {
-        var status=$("#lblStatus").text();
+        var status = $("#lblStatus").text();
 
-        if (status=="to do"){
+        if (status == "to do") {
             $("#btnResolve").attr('disabled', true);
             $("#btnDone").attr('disabled', true);
-        };
+        }
+        ;
 
-        if (status=="in progress"){
+        if (status == "in progress") {
             $("#btnStart").attr('disabled', true);
             $("#btnDone").attr('disabled', true);
-        };
+        }
+        ;
 
-        if (status=="delivered"){
+        if (status == "delivered") {
             $("#btnStart").attr('disabled', true);
             $("#btnResolve").attr('disabled', true);
-        };
+        }
+        ;
 
-        if (status=="done"){
+        if (status == "done") {
             $("#btnStart").attr('disabled', true);
             $("#btnResolve").attr('disabled', true);
             $("#btnDone").attr('disabled', true);
-        };
+        }
+        ;
 
 
         $("#btnStart").click(function () {
@@ -95,39 +99,71 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <div class="btn-group">
-                        <button class="btn btn-default" id="btnStart">
-                            Start Progress
-                        </button>
+            <div class="container-fluid">
 
-                        <button class="btn btn-default" id="btnResolve">
-                            Resolve Issue
-                        </button>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-default" id="btnStart">
+                                Start Progress
+                            </button>
 
-                        <button class="btn btn-default" id="btnDone">
-                            Done
-                        </button>
+                            <button class="btn btn-default" id="btnResolve">
+                                Resolve Issue
+                            </button>
+
+                            <button class="btn btn-default" id="btnDone">
+                                Done
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        Status:
+                        <label id="lblStatus">${task.status.name}</label>
                     </div>
                 </div>
-                <div class="panel-body">
-                    Status:
-                    <label id="lblStatus">${task.status.name}</label>
-                </div>
+                <form method="post" action="createActivity">
+                    <div id="accordion" class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
+                                        class="fa fa-pencil"></i> Report </a>
+                            </div>
+                            <div class="collapse panel-collapse" id="collapse-1">
+                                <div class="panel-body">
+                                    <input type="text" class="form-control" id="duration" name="duration"
+                                           placeholder="duration">
+                                <textarea placeholder="comment" class="form-control" rows="3" id="comment"
+                                          name="comment"></textarea>
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
         <div class="col-lg-4">
-            <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <input type="file" name="file"/>
+            <div class="container-fluid">
+                <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <div class="panel panel-default panel">
+
+                        <div class="panel-body">
+                            <input class="well-sm" type="file" name="file" style="padding-top: 5px;padding-bottom: 15px;"/>
+                            <input class="form-control" type="text" name="description" id="description"
+                                   placeholder="description">
+                        </div>
+                        <div class="panel-footer text-center">
+                            <input class="btn btn-default btn-block" type="submit" value="attach"/>
+                        </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <input class="btn btn-default btn-block" type="submit" value="attach"/>
-                    </div>
-                </div>
-            </form:form>
+                </form:form>
+            </div>
+
         </div>
         <div class="col-lg-2">
             <p class="text-center well-sm">Assigne to ${login}</p>
@@ -141,27 +177,7 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <form method="post" action="createActivity">
-                <div id="accordion" class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading text-center">
-                            <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
-                                    class="fa fa-pencil"></i> Report </a>
-                        </div>
-                        <div class="collapse panel-collapse" id="collapse-1">
-                            <div class="panel-body">
-                                <input type="text" class="form-control" id="duration" name="duration"
-                                       placeholder="duration">
-                                <textarea placeholder="comment" class="form-control" rows="3" id="comment"
-                                          name="comment"></textarea>
-                            </div>
-                            <div class="panel-footer">
-                                <button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+
         </div>
     </div>
 
