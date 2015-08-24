@@ -166,7 +166,7 @@
 
         </div>
         <div class="col-lg-2">
-            <p class="text-center well-sm">Assigne to ${login}</p>
+            <p class="text-center well"><i class="fa fa-user fa-1x"></i>   Assignee to ${login}</p>
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default pull-right btn-sm" type="button"><i class="fa fa-external-link-square"></i>
