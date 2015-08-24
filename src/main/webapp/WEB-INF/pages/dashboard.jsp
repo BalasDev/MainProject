@@ -37,7 +37,7 @@
     <div class="rowPadding">
         <div class="col-lg-6">
 
-            <div class="frame scroll" style="height: 75%">
+            <div class="frame" style="height: 75%">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="navbar navbar-inverse navbar-static-top" style="height: 50px">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="rowStyle scroll" style="height: 400px">
                     <table class="table" id="tblActiv">
-                        <c:forEach items="${listActivity}" var="activity" end="0">
+                        <c:forEach items="${listActivity}" var="activity" end="4">
                             <tr>
                                 <td>
                                         ${activity.member.employee.lastName} ${activity.member.employee.firstName}
@@ -66,7 +66,7 @@
 
                 </div>
 
-                <button class="btn btn-default btn-block" id="btnShow" style=" margin-top: 60px;" >Show more</button>
+                <button class="btn btn-default btn-block" id="btnShow" style=" margin-top: 55px;" >Show more</button>
 
             </div>
         </div>

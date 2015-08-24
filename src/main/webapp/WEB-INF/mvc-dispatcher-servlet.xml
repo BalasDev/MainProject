@@ -11,8 +11,9 @@
 
     <annotation-driven/>
     <default-servlet-handler/>
-
-
+    <!--для загрузки файлов-->
+    <beans:bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
     <!-- Всю статику (изображения, css-файлы, javascript) положим в папку webapp/resources
         и замаппим их на урл вида /resources/**
     <resources mapping="/resources/**" location="/resources/" />

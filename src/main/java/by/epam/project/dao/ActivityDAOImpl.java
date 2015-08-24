@@ -1,6 +1,9 @@
 package by.epam.project.dao;
 
 import by.epam.project.domain.Activity;
+import by.epam.project.domain.Assigment;
+import by.epam.project.domain.Member;
+import jdk.nashorn.internal.ir.Assignment;
 import by.epam.project.domain.Task;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +26,18 @@ public class ActivityDAOImpl implements ActivityDAO {
     }
 
     public List<Activity> listActivity() {
-        //List<Activity> activities = new ArrayList<Activity>();
         return sessionFactory.getCurrentSession().createQuery("from Activity order by _DATE DESC").list();
 
     }
 
-    public void addActivity(Task task,String comment,Integer duration) {
+    public void addActivity(Integer duration, String comment, Member member, Assigment assignment) {
+
         Activity activity= new Activity();
-        activity.setComment(comment);
         activity.setDuration(duration);
-        activity.setAssigment(task.getAssigment());
-        activity.setMember(task.getAssigment().getMember());
+        activity.setComment(comment);
+        activity.setMember(member);
+        activity.setAssigment(assignment);
+
         sessionFactory.getCurrentSession().save(activity);
     }
 }

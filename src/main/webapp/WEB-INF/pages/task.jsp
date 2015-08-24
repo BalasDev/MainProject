@@ -6,13 +6,40 @@
 <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
-<link href="webres/css/input.css" rel="stylesheet">
 
 
 <jsp:include page="header.jsp"/>
 
 <script>
     $(document).ready(function () {
+        var status = $("#lblStatus").text();
+
+        if (status == "to do") {
+            $("#btnResolve").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        }
+        ;
+
+        if (status == "in progress") {
+            $("#btnStart").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        }
+        ;
+
+        if (status == "delivered") {
+            $("#btnStart").attr('disabled', true);
+            $("#btnResolve").attr('disabled', true);
+        }
+        ;
+
+        if (status == "done") {
+            $("#btnStart").attr('disabled', true);
+            $("#btnResolve").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        }
+        ;
+
+
         $("#btnStart").click(function () {
             var s;
             $.ajax({
@@ -24,12 +51,10 @@
                 success: function (data) {
                     $("#btnStart").attr('disabled', true);
                     $("#btnResolve").removeAttr('disabled');
-                    $("#btnDone").removeAttr('disabled');
+                    $("#btnDone").attr('disabled', true);
                     $("#lblStatus").text(data.name);
                 }
             });
-
-
         });
 
         $("#btnResolve").click(function () {
@@ -41,7 +66,7 @@
                 contentType: 'application/json',
                 mimeType: 'application/json',
                 success: function (data) {
-                    $("#btnStart").removeAttr('disabled');
+                    $("#btnStart").attr('disabled', true);
                     $("#btnResolve").attr('disabled', true);
                     $("#btnDone").removeAttr('disabled');
                     $("#lblStatus").text(data.name);
@@ -58,11 +83,10 @@
                 contentType: 'application/json',
                 mimeType: 'application/json',
                 success: function (data) {
-                    $("#btnStart").removeAttr('disabled');
-                    $("#btnResolve").removeAttr('disabled');
+                    $("#btnStart").attr('disabled', true);
+                    $("#btnResolve").attr('disabled', true);
                     $("#btnDone").attr('disabled', true);
                     $("#lblStatus").text(data.name);
-
                 }
             });
 
@@ -96,31 +120,57 @@
                 </div>
             </div>
         </div>
-        <form method="post" action="createActivity">
-            <div class="col-lg-4">
+        <div class="col-lg-4">
+            <div class="container-fluid">
+
                 <div id="accordion" class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading text-center">
-                            <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
-                                    class="fa fa-pencil"></i> Report </a>
-                        </div>
-                        <div class="collapse panel-collapse" id="collapse-1">
-                            <div class="panel-body">
-                                <input type="text" class="form-control" id="duration" name="duration"
-                                       placeholder="duration">
-                                <textarea placeholder="comment" class="form-control" rows="3" id="comment"
-                                          name="comment"></textarea>
+                    <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <a href="#collapse-2" data-parent="#accordion" data-toggle="collapse"> <i
+                                        class="fa fa-paperclip"></i> Attach file </a>
                             </div>
-                            <div class="panel-footer">
-                                <button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add</button>
+                            <div class="collapse panel-collapse" id="collapse-2">
+                                <div class="panel-body">
+                                    <input class="well-sm" type="file" name="file"
+                                           style="padding-top: 5px;padding-bottom: 15px;"/>
+                                    <input class="form-control" type="text" name="description" id="description"
+                                           placeholder="description">
+                                </div>
+                                <div class="panel-footer text-center">
+                                    <input class="btn btn-default btn-block" type="submit" value="attach"/>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form:form>
+
+                    <form method="post" action="createActivity">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i
+                                        class="fa fa-pencil"></i> Report </a>
+                            </div>
+                            <div class="collapse panel-collapse" id="collapse-1">
+                                <div class="panel-body">
+                                    <input type="text" class="form-control well-sm" id="duration" name="duration"
+                                           placeholder="duration">
+                                    <textarea placeholder="comment" class="form-control" rows="3" id="comment"
+                                              name="comment"></textarea>
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-default btn-block" id="btnAddReport" type="submit">Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+
             </div>
-        </form>
+
+        </div>
         <div class="col-lg-2">
-            <p class="text-center well-sm">Assigne to ${login}</p>
+            <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to ${login}</p>
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default pull-right btn-sm" type="button"
@@ -133,15 +183,11 @@
         </div>
     </div>
 
-    <div class="row">
-
-    </div>
-
-    <div class="row">
+    <div class="row" style="padding-top: 70px;">
         <div class="col-lg-6">
             <div class="frame" style="height: 60%">
                 <div class="rowStyle scroll" style="height: 400px">
-                    <table class="table" id="tblActiv">
+                    <table class="table table-bordered" id="tblActiv">
                         <th class="text-center">Activity</th>
                         <c:forEach items="${listActivity}" var="activity">
                             <tr>
@@ -151,7 +197,9 @@
                                     <br>${activity.comment}
                                     <br>
 
-                                    <div class="text-right text-danger"
+                                    <div class="col-lg-6 text-left text-danger"
+                                         style="font-size: x-small">Duration:${activity.duration}</div>
+                                    <div class="col-lg-6 text-right text-danger"
                                          style="font-size: x-small">${activity.date}</div>
                                 </td>
                             </tr>
@@ -161,7 +209,24 @@
 
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="frame" style="height: 60%">
+                <div class="rowStyle scroll" style="height: 400px">
+                    <table class="table table-bordered" id="tblAttach">
+                        <caption>Attachments</caption>
+                        <th class="text-center">File</th>
+                        <th class="text-center">Description</th>
+                        <c:forEach items="${listAttachment}" var="attachment">
+                            <tr>
+                                <td>${attachment.name}</td>
+                                <td>${attachment.description}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
 
+            </div>
+        </div>
     </div>
 
 </div>

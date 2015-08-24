@@ -32,7 +32,7 @@ public class LoginController {
     private AuthUser user = new AuthUser();
 
     Integer startElem;
-    Integer countShow = 1;
+    Integer countShow = 5;
 
 
     @RequestMapping("/")
@@ -44,9 +44,15 @@ public class LoginController {
         return "dashboard";
     }
 
+
     @RequestMapping("/login")
     public String sing() {
         return "login";
+    }
+
+    @RequestMapping("/logError")
+    public String logError() {
+        return "logError";
     }
 
 

@@ -3,6 +3,8 @@ package by.epam.project.service;
 import by.epam.project.dao.ActivityDAO;
 import by.epam.project.domain.Activity;
 import by.epam.project.domain.Task;
+import by.epam.project.domain.Assigment;
+import by.epam.project.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +27,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Transactional
-    public void addActivity(Task task,String comment,Integer duration){
-        activityDAO.addActivity(task,comment,duration);
+    public void addActivity(Integer duration, String comment, Member member, Assigment assignment) {
+        activityDAO.addActivity(duration, comment, member, assignment);
     }
         }

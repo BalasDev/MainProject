@@ -3,14 +3,21 @@ package by.epam.project.web;
 import by.epam.project.domain.*;
 import by.epam.project.security.AuthUser;
 import by.epam.project.service.ActivityService;
+import by.epam.project.service.AttachmentService;
+import by.epam.project.service.ProjectService;
 import by.epam.project.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +27,23 @@ public class TaskController {
 
     @Autowired
     private TaskService taskService;
-    private Integer taskId;
     @Autowired
     private ActivityService activityService;
+    @Autowired
+    private AttachmentService attachmentService;
+    @Autowired
+    ProjectService projectService;
+
+    private Integer taskId;
     AuthUser user = new AuthUser();
+
+    public String getPath() throws UnsupportedEncodingException {
+        String path = this.getClass().getClassLoader().getResource("").getPath();
+        String fullPath = URLDecoder.decode(path, "UTF-8");
+        String pathArr[] = fullPath.split("/WEB-INF/classes/");
+        String reponsePath = new File(pathArr[0]).getPath() + File.separatorChar;
+        return reponsePath;
+    }
 
     @RequestMapping(value = "/opentask/{id}", method = RequestMethod.GET)
     public String openProject(@PathVariable("id") Integer id) {
@@ -38,7 +58,8 @@ public class TaskController {
         map.put("task",task);
         map.put("login", user.getCurrentUser());
         map.put("listActivity",taskService.getTaskActivity(taskId));
-
+        map.put("listAttachment", attachmentService.listAttachTask(taskId));
+        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         return "task";
     }
 
@@ -62,15 +83,31 @@ public class TaskController {
     @RequestMapping(value = "/createActivity", method = RequestMethod.POST)
      public String createActivity(@ModelAttribute("duration") Integer duration, @ModelAttribute("comment") String comment){
         Task task = taskService.getTask(taskId);
-        /*Activity activity= new Activity();
-        activity.setComment(comment);
-        activity.setDuration(duration);
-        activity.setAssigment(task.getAssigment());
-        activity.setMember(task.getAssigment().getMember());*/
-        activityService.addActivity(task, comment, duration);
+        activityService.addActivity(duration, comment, task.getAssigment().getMember(),task.getAssigment());
         return "redirect:/totask";
     }
 
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(@ModelAttribute("uploadForm") FileUploadForm uploadForm,@ModelAttribute("description") String description,
+                       Model map) {
+
+        try {
+            MultipartFile file = uploadForm.getFile();
+            String saveDirectory = getPath();
+            String fileName = "";
+
+            if (file != null) {
+                fileName = file.getOriginalFilename();
+                file.transferTo(new File(saveDirectory + fileName));
+            }
+
+            Task task = taskService.getTask(taskId);
+            attachmentService.addAttachment(fileName,String.valueOf(file.getSize()),description,task.getProject(),task);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/totask";
+    }
     @RequestMapping(value="/export/{id}", method = RequestMethod.GET)
     public @ResponseBody
     ExportXML getCoffeeInXML(@PathVariable Integer id) {
