@@ -4,6 +4,7 @@ import by.epam.project.domain.*;
 import by.epam.project.security.AuthUser;
 import by.epam.project.service.ActivityService;
 import by.epam.project.service.AttachmentService;
+import by.epam.project.service.ProjectService;
 import by.epam.project.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,8 @@ public class TaskController {
     private ActivityService activityService;
     @Autowired
     private AttachmentService attachmentService;
+    @Autowired
+    ProjectService projectService;
 
     private Integer taskId;
     AuthUser user = new AuthUser();
@@ -55,6 +58,7 @@ public class TaskController {
         map.put("login", user.getCurrentUser());
         map.put("listActivity",taskService.getTaskActivity(taskId));
         map.put("listAttachment", attachmentService.listAttachTask(taskId));
+        map.put("listProject", projectService.getProjects(user.getCurrentUser()));
         return "task";
     }
 

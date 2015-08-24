@@ -6,7 +6,6 @@
 <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
-<%--<link href="webres/css/input.css" rel="stylesheet">--%>
 
 
 <jsp:include page="header.jsp"/>
@@ -198,8 +197,6 @@
                                          style="font-size: x-small">Duration:${activity.duration}</div>
                                     <div class="col-lg-6 text-right text-danger"
                                          style="font-size: x-small">${activity.date}</div>
-
-
                                 </td>
                             </tr>
                         </c:forEach>
