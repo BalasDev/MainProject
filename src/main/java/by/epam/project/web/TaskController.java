@@ -110,10 +110,9 @@ public class TaskController {
             attachment.setName(fileName);
             attachment.setSize(String.valueOf(file.getSize()));
             attachment.setDescription("Roma");
-//            attachment.setProject(task.getProject());
+            attachment.setProject(task.getProject());
             attachment.setTask(task);
             attachmentService.addAttachment(attachment);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
