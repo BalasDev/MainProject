@@ -20,6 +20,13 @@ public class AttachmentServiceImpl implements AttachmentService {
         return attachmentDAO.getAttachment(id);
     }
 
+    @Transactional
+    public void addAttachment (Attachment attachment) {
+        attachmentDAO.addAttachment(attachment);
+    }
 
-
+    @Transactional
+    public List<Attachment> listAttachTask (Integer taskid){
+        return attachmentDAO.listAttachTask(taskid);
+    }
 }

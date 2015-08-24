@@ -28,8 +28,6 @@ public class ActivityDAOImpl implements ActivityDAO {
     }
 
     public void addActivity(Activity activity) {
-
-        String query = " ";
         sessionFactory.getCurrentSession().save(activity);
     }
 }

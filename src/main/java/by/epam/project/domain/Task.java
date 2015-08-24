@@ -2,6 +2,8 @@ package by.epam.project.domain;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Created by Roma on 18.08.2015.
@@ -39,6 +41,17 @@ public class Task {
 
     @OneToOne(mappedBy="task", cascade=CascadeType.ALL)
     private Assigment assigment;
+
+    @OneToMany(mappedBy = "task")
+    private List<Attachment> attachments;
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
+    }
 
     public Assigment getAssigment() {
         return assigment;

@@ -25,7 +25,7 @@ public class Attachment {
     @JoinColumn(name = "PROJECTID", nullable = false)
     private Project project;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "TASKID")
     private Task task;
 

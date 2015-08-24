@@ -173,19 +173,13 @@
                 <div class="rowStyle scroll" style="height: 400px">
                     <table class="table table-bordered" id="tblAttach">
                         <th class="text-center">Attachments</th>
-                        <%--<c:forEach items="${listActivity}" var="activity">--%>
-                            <%--<tr>--%>
-                                <%--<td>--%>
-                                        <%--${activity.member.employee.lastName} ${activity.member.employee.firstName}--%>
-                                    <%--project:${activity.member.project.name} task:${activity.assigment.task.description}--%>
-                                    <%--<br>${activity.comment}--%>
-                                    <%--<br>--%>
-
-                                    <%--<div class="text-right text-danger"--%>
-                                         <%--style="font-size: x-small">${activity.date}</div>--%>
-                                <%--</td>--%>
-                            <%--</tr>--%>
-                        <%--</c:forEach>--%>
+                        <c:forEach items="${listAttachment}" var="attachment">
+                            <tr>
+                                <td>
+                                        ${attachment.name}
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </table>
                 </div>
 
