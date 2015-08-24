@@ -55,8 +55,8 @@ public class TaskController {
         map.put("task",task);
         map.put("login", user.getCurrentUser());
         map.put("listActivity",taskService.getTaskActivity(taskId));
-//        map.put("listAttachment", attachmentService.listAttachTask(taskId));
-
+        map.put("listAttachment", attachmentService.listAttachTask(taskId));
+//        map.put("listAttachment", task.getAttachments());
         return "task";
     }
 

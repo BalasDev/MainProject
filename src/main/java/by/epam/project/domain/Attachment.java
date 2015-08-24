@@ -18,11 +18,11 @@ public class Attachment {
     @Column(name = "SIZE")
     private String size;
 
-    @Column(name = "DESCPRITION")
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "PROJECTID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "PROJECTID")
     private Project project;
 
     @ManyToOne

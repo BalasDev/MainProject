@@ -27,9 +27,7 @@ public class AttachmentDAOImpl implements AttachmentDAO {
 
     @Override
     public List<Attachment> listAttachTask (Integer id){
-        String stringQuery = "select distinct a from Attachment a " +
-                "inner join a.task t " +
-                "where t.id=:id";
+        String stringQuery = "from Attachment where taskid =:id";
         Query query = sessionFactory.getCurrentSession().createQuery(stringQuery);
         query.setParameter("id", id);
         List<Attachment> attachments = query.list();

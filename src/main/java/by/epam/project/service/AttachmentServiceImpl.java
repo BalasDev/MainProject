@@ -26,7 +26,7 @@ public class AttachmentServiceImpl implements AttachmentService {
     }
 
     @Transactional
-    public List<Attachment> listAttachTask (Integer taskid){
-        return attachmentDAO.listAttachTask(taskid);
+    public List<Attachment> listAttachTask (Integer id){
+        return attachmentDAO.listAttachTask(id);
     }
 }

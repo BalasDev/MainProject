@@ -9,7 +9,7 @@
     <schema name="" catalog="projectmanagment"/>
     <table name="activity" schema="" catalog="projectmanagment" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="_DATE" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="_DATE" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="DURATION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="COMMENT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="MEMBERID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
@@ -34,11 +34,11 @@
     </table>
     <table name="attachment" schema="" catalog="projectmanagment" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="SIZE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="PROJECTID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="TASKID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SIZE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PROJECTID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="TASKID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="attachment_ibfk_1" columns="PROJECTID" ref-table="project" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="attachment_ibfk_2" columns="TASKID" ref-table="task" ref-schema="" ref-catalog="projectmanagment" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
