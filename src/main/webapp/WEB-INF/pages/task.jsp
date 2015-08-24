@@ -13,6 +13,30 @@
 
 <script>
     $(document).ready(function () {
+        var status=$("#lblStatus").text();
+
+        if (status=="to do"){
+            $("#btnResolve").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        };
+
+        if (status=="in progress"){
+            $("#btnStart").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        };
+
+        if (status=="delivered"){
+            $("#btnStart").attr('disabled', true);
+            $("#btnResolve").attr('disabled', true);
+        };
+
+        if (status=="done"){
+            $("#btnStart").attr('disabled', true);
+            $("#btnResolve").attr('disabled', true);
+            $("#btnDone").attr('disabled', true);
+        };
+
+
         $("#btnStart").click(function () {
             var s;
             $.ajax({
@@ -24,12 +48,10 @@
                 success: function (data) {
                     $("#btnStart").attr('disabled', true);
                     $("#btnResolve").removeAttr('disabled');
-                    $("#btnDone").removeAttr('disabled');
+                    $("#btnDone").attr('disabled', true);
                     $("#lblStatus").text(data.name);
                 }
             });
-
-
         });
 
         $("#btnResolve").click(function () {
@@ -41,7 +63,7 @@
                 contentType: 'application/json',
                 mimeType: 'application/json',
                 success: function (data) {
-                    $("#btnStart").removeAttr('disabled');
+                    $("#btnStart").attr('disabled', true);
                     $("#btnResolve").attr('disabled', true);
                     $("#btnDone").removeAttr('disabled');
                     $("#lblStatus").text(data.name);
@@ -58,11 +80,10 @@
                 contentType: 'application/json',
                 mimeType: 'application/json',
                 success: function (data) {
-                    $("#btnStart").removeAttr('disabled');
-                    $("#btnResolve").removeAttr('disabled');
+                    $("#btnStart").attr('disabled', true);
+                    $("#btnResolve").attr('disabled', true);
                     $("#btnDone").attr('disabled', true);
                     $("#lblStatus").text(data.name);
-
                 }
             });
 
