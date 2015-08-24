@@ -44,9 +44,15 @@ public class LoginController {
         return "dashboard";
     }
 
+
     @RequestMapping("/login")
     public String sing() {
         return "login";
+    }
+
+    @RequestMapping("/logError")
+    public String logError() {
+        return "logError";
     }
 
 
