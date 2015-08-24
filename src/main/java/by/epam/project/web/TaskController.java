@@ -83,7 +83,7 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("uploadForm") FileUploadForm uploadForm,
+    public String save(@ModelAttribute("uploadForm") FileUploadForm uploadForm,@ModelAttribute("description") String description,
                        Model map) {
 
         try {
@@ -97,7 +97,7 @@ public class TaskController {
             }
 
             Task task = taskService.getTask(taskId);
-            attachmentService.addAttachment(fileName,String.valueOf(file.getSize()),"Roma",task.getProject(),task);
+            attachmentService.addAttachment(fileName,String.valueOf(file.getSize()),description,task.getProject(),task);
         } catch (Exception e) {
             e.printStackTrace();
         }

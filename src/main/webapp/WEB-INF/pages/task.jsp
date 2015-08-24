@@ -209,12 +209,13 @@
             <div class="frame" style="height: 60%">
                 <div class="rowStyle scroll" style="height: 400px">
                     <table class="table table-bordered" id="tblAttach">
-                        <th class="text-center">Attachments</th>
+                        <caption>Attachments</caption>
+                        <th class="text-center">File</th>
+                        <th class="text-center">Description</th>
                         <c:forEach items="${listAttachment}" var="attachment">
                             <tr>
-                                <td>
-                                        ${attachment.name}
-                                </td>
+                                <td>${attachment.name}</td>
+                                <td>${attachment.description}</td>
                             </tr>
                         </c:forEach>
                     </table>
