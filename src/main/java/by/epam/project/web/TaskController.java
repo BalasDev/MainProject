@@ -80,6 +80,12 @@ public class TaskController {
         Export export = new Export();
         for(Activity activity:activities){
            export.setLastName(activity.getMember().getEmployee().getLastName());
+           export.setFirstName(activity.getMember().getEmployee().getFirstName());
+           export.setProjectName(activity.getAssigment().getTask().getProject().getName());
+           export.setDescription(activity.getAssigment().getTask().getDescription());
+           export.setDate(activity.getDate());
+           export.setDuration(activity.getDuration());
+           export.setComment(activity.getComment());
            exportXML.getExportData().add(export);
         }
 

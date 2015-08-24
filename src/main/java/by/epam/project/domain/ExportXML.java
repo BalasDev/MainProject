@@ -7,11 +7,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "fields")
+@XmlRootElement(name = "Activities")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ExportXML {
 
-    @XmlElement(name = "field")
+    @XmlElement(name = "Activitie")
    public List<Export> exportData = new ArrayList<Export>();
 
     public List<Export> getExportData() {

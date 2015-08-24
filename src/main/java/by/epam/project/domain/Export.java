@@ -5,16 +5,22 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Export {
 
-    @XmlAttribute(name = "mappedField")
+    @XmlAttribute
     public String lastName;
-    /*@XmlElement
+    @XmlAttribute
     private String firstName;
-    @XmlElement
+    @XmlAttribute
     private String projectName;
-    @XmlElement
+    @XmlAttribute
     private String description;
-    @XmlElement
-    private String comment;*/
+    @XmlAttribute
+    private String comment;
+
+    @XmlAttribute
+    private String date;
+
+    @XmlAttribute
+    private Integer duration;
 
     public String getLastName() {
         return lastName;
@@ -24,7 +30,7 @@ public class Export {
         this.lastName = lastName;
     }
 
-    /*public String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -55,5 +61,20 @@ public class Export {
     public void setComment(String comment) {
         this.comment = comment;
     }
-*/
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 }
