@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <form:form method="post" action="save.html" modelAttribute="uploadForm" enctype="multipart/form-data">
+            <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <input type="file" name="file"/>
@@ -171,7 +171,7 @@
         <div class="col-lg-6">
             <div class="frame" style="height: 60%">
                 <div class="rowStyle scroll" style="height: 400px">
-                    <table class="table table-bordered" id="tblActiv">
+                    <table class="table table-bordered" id="tblAttach">
                         <th class="text-center">Attachments</th>
                         <%--<c:forEach items="${listActivity}" var="activity">--%>
                             <%--<tr>--%>
