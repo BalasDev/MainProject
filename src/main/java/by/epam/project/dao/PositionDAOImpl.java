@@ -12,9 +12,11 @@ import java.util.List;
 public class PositionDAOImpl implements PositionDAO {
 
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     public List<Position> listPosition() {
         return sessionFactory.getCurrentSession().createQuery("from Position").list();
     }
+
+
 }

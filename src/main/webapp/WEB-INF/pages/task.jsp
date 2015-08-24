@@ -171,7 +171,27 @@
 
         </div>
         <div class="col-lg-2">
-            <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to <%--${login}--%><sec:authentication property="principal.username" /></p>
+
+            <%
+                String name="manager";
+                pageContext.setAttribute("mainRole",name);
+            %>
+
+
+            <%--<c:set var="mainRole" value="manager"/>--%>
+            <c:choose>
+                <c:when test="${role.name = 'manager'}">
+                    Yes
+                </c:when>
+
+                <c:otherwise>
+                    No
+                </c:otherwise>
+            </c:choose>
+
+
+
+           <%-- <p class="text-center well"><i class="fa fa-user fa-1x"></i> Assignee to &lt;%&ndash;${login}&ndash;%&gt;<sec:authentication property="principal.username" />, ${role}</p>--%>
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default pull-right btn-sm" type="button"
