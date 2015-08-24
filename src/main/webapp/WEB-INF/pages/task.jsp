@@ -99,53 +99,26 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-default" id="btnStart">
+                            Start Progress
+                        </button>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">
-                        <div class="btn-group">
-                            <button class="btn btn-default" id="btnStart">
-                                Start Progress
-                            </button>
+                        <button class="btn btn-default" id="btnResolve">
+                            Resolve Issue
+                        </button>
 
-                            <button class="btn btn-default" id="btnResolve">
-                                Resolve Issue
-                            </button>
-
-                            <button class="btn btn-default" id="btnDone">
-                                Done
-                            </button>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        Status:
-                        <label id="lblStatus">${task.status.name}</label>
+                        <button class="btn btn-default" id="btnDone">
+                            Done
+                        </button>
                     </div>
                 </div>
-
-                <div id="accordion" class="panel-group">
-                    <%--<form method="post" action="createActivity">--%>
-                    <%--<div class="panel panel-default">--%>
-                    <%--<div class="panel-heading text-center">--%>
-                    <%--<a href="#collapse-1" data-parent="#accordion" data-toggle="collapse"> <i--%>
-                    <%--class="fa fa-pencil"></i> Report </a>--%>
-                    <%--</div>--%>
-                    <%--<div class="collapse panel-collapse" id="collapse-1">--%>
-                    <%--<div class="panel-body">--%>
-                    <%--<input type="text" class="form-control" id="duration" name="duration"--%>
-                    <%--placeholder="duration">--%>
-                    <%--<textarea placeholder="comment" class="form-control" rows="3" id="comment"--%>
-                    <%--name="comment"></textarea>--%>
-                    <%--</div>--%>
-                    <%--<div class="panel-footer">--%>
-                    <%--<button class="btn btn-success btn-block" id="btnAddReport" type="submit">Add--%>
-                    <%--</button>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-                    <%--</form>--%>
+                <div class="panel-body">
+                    Status:
+                    <label id="lblStatus">${task.status.name}</label>
                 </div>
-
             </div>
         </div>
         <div class="col-lg-4">
@@ -155,7 +128,8 @@
                     <form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
-                                <a href="#collapse-2" data-parent="#accordion" data-toggle="collapse"> <i class="fa fa-paperclip"></i> Attach file </a>
+                                <a href="#collapse-2" data-parent="#accordion" data-toggle="collapse"> <i
+                                        class="fa fa-paperclip"></i> Attach file </a>
                             </div>
                             <div class="collapse panel-collapse" id="collapse-2">
                                 <div class="panel-body">
@@ -193,20 +167,6 @@
                     </form>
                 </div>
 
-                <%--<form:form method="post" action="save" modelAttribute="uploadForm" enctype="multipart/form-data">--%>
-                <%--<div class="panel panel-default panel">--%>
-
-                <%--<div class="panel-body">--%>
-                <%--<input class="well-sm" type="file" name="file"--%>
-                <%--style="padding-top: 5px;padding-bottom: 15px;"/>--%>
-                <%--<input class="form-control" type="text" name="description" id="description"--%>
-                <%--placeholder="description">--%>
-                <%--</div>--%>
-                <%--<div class="panel-footer text-center">--%>
-                <%--<input class="btn btn-default btn-block" type="submit" value="attach"/>--%>
-                <%--</div>--%>
-                <%--</div>--%>
-                <%--</form:form>--%>
             </div>
 
         </div>
@@ -220,13 +180,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-
-        </div>
-    </div>
-
-    <div class="row">
+    <div class="row" style="padding-top: 70px;">
         <div class="col-lg-6">
             <div class="frame" style="height: 60%">
                 <div class="rowStyle scroll" style="height: 400px">
@@ -240,8 +194,12 @@
                                     <br>${activity.comment}
                                     <br>
 
-                                    <div class="text-right text-danger"
+                                    <div class="col-lg-6 text-left text-danger"
+                                         style="font-size: x-small">Duration:${activity.duration}</div>
+                                    <div class="col-lg-6 text-right text-danger"
                                          style="font-size: x-small">${activity.date}</div>
+
+
                                 </td>
                             </tr>
                         </c:forEach>
