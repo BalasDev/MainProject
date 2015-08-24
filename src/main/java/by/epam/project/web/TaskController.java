@@ -45,7 +45,6 @@ public class TaskController {
     @RequestMapping(value = "/opentask/{id}", method = RequestMethod.GET)
     public String openProject(@PathVariable("id") Integer id) {
         taskId = id;
-
         return "redirect:/totask";
     }
 
@@ -56,7 +55,6 @@ public class TaskController {
         map.put("login", user.getCurrentUser());
         map.put("listActivity",taskService.getTaskActivity(taskId));
         map.put("listAttachment", attachmentService.listAttachTask(taskId));
-//        map.put("listAttachment", task.getAttachments());
         return "task";
     }
 
@@ -80,12 +78,7 @@ public class TaskController {
     @RequestMapping(value = "/createActivity", method = RequestMethod.POST)
      public String createActivity(@ModelAttribute("duration") Integer duration, @ModelAttribute("comment") String comment){
         Task task = taskService.getTask(taskId);
-        Activity activity= new Activity();
-        activity.setComment(comment);
-        activity.setDuration(duration);
-        activity.setAssigment(task.getAssigment());
-        activity.setMember(task.getAssigment().getMember());
-        activityService.addActivity(activity);
+        activityService.addActivity(duration, comment, task.getAssigment().getMember(),task.getAssigment());
         return "redirect:/totask";
     }
 
@@ -103,34 +96,11 @@ public class TaskController {
                 file.transferTo(new File(saveDirectory + fileName));
             }
 
-            map.addAttribute("file", file);
-
             Task task = taskService.getTask(taskId);
-            Attachment attachment= new Attachment();
-            attachment.setName(fileName);
-            attachment.setSize(String.valueOf(file.getSize()));
-            attachment.setDescription("Roma");
-            attachment.setProject(task.getProject());
-            attachment.setTask(task);
-            attachmentService.addAttachment(attachment);
+            attachmentService.addAttachment(fileName,String.valueOf(file.getSize()),"Roma",task.getProject(),task);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/totask";
     }
-
-
-//    @RequestMapping(value = "/createAttachment", method = RequestMethod.POST)
-//    public String createAttachment(@ModelAttribute("file")MultipartFile file){
-//        Task task = taskService.getTask(taskId);
-//        Attachment attachment= new Attachment();
-//        attachment.setName(file.getName());
-//        attachment.setSize(String.valueOf(file.getSize()));
-//        attachment.setDescription("Roma");
-//        attachment.setProject(task.getProject());
-//        attachment.setTask(task);
-//        attachmentService.addAttachment(attachment);
-//        return "redirect:/totask";
-//    }
-
 }
