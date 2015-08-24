@@ -39,18 +39,6 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Dashboards</a></li>
 
-
-                        <%--<form action="" class="navbar-form navbar-left">
-                          <div class="dropdown">
-                          <a href="<c:url value="#" />" class="btn btn-primary form-control dropdown-toggle"  data-toggle="dropdown">Projects  <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <c:forEach items="${listProject}" var="project">
-                                <li><a href="<%=request.getContextPath()%>/project/${project.id}">${project.name}</a></li>
-                              </c:forEach>
-                            </ul>
-                          </div>
-                        </form>--%>
-
                         <li class="dropdown">
                             <a href="<c:url value="#" />" class="dropdown-toggle" data-toggle="dropdown">Projects <span
                                     class="caret"></span></a>
@@ -68,10 +56,12 @@
                     <form action="" class="navbar-form navbar-left">
                         <a href="<c:url value="/tocreateissue" />" class="btn btn-primary form-control">Create issue</a>
                     </form>
-                    <form action="" class="navbar-form navbar-left">
-                        <a href="<c:url value="/toprojectadministration" />" class="btn btn-primary form-control">Project
-                            administration</a>
-                    </form>
+                    <security:authorize url="/administrator">
+                        <form action="" class="navbar-form navbar-left">
+                            <a href="<c:url value="/toprojectadministration" />" class="btn btn-primary form-control">Project
+                                administration</a>
+                        </form>
+                    </security:authorize>
                     <form action="" class="navbar-form navbar-right">
                         <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Exit</a>
                     </form>

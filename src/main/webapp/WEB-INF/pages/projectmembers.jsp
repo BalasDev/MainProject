@@ -36,9 +36,11 @@
                     <td> ${member.role.name} </td>
                     </c:forEach>
             </table>
-            <div class="navbar-form navbar-left">
-                <a href="<c:url value="/toaddmember" />" class="btn btn-primary form-control">Add member</a>
-            </div>
+            <security:authorize url="/administrator">
+                <div class="navbar-form navbar-left">
+                    <a href="<c:url value="/toaddmember" />" class="btn btn-primary form-control">Add member</a>
+                </div>
+            </security:authorize>
         </div>
     </div>
 </div>

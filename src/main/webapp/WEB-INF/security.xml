@@ -10,6 +10,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
 
     <http auto-config="true" use-expressions="false">
         <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_USER"></intercept-url>
+        <intercept-url pattern="/administrator" access="ROLE_ADMIN"></intercept-url>
 
         <form-login default-target-url="/"
                     authentication-failure-url="/logError"
