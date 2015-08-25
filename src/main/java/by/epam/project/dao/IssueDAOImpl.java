@@ -19,7 +19,6 @@ public class IssueDAOImpl implements IssueDAO {
     public List<Project> getProject(String login) {
 
         String stringQueryProject = "select distinct  p from Project p " +
-
                 "left join p.employees  e " +
                 "left join p.roles r " +
                 "where r.name in (:role1,:role2,:role3) " +

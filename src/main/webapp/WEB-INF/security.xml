@@ -10,7 +10,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
 
     <http auto-config="true" use-expressions="false">
         <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_USER"></intercept-url>
-
+        <intercept-url pattern="/administrator" access="ROLE_ADMIN" />
         <form-login default-target-url="/"
                     authentication-failure-url="/logError"
                     login-page="/login"/>
@@ -27,17 +27,6 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
         <authentication-provider user-service-ref="UserService"/>
     </authentication-manager>
     <beans:bean id="UserService" class="by.epam.project.security.CustomUserDetailService"/>
-
-    <!--<authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="pixar" password="pixar" authorities="ROLE_ADMIN" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-                <user name="user" password="user" authorities="ROLE_USER" />
-
-            </user-service>
-        </authentication-provider>
-    </authentication-manager>-->
 
 
 </beans:beans>
