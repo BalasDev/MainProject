@@ -19,8 +19,6 @@ public class Activity {
     private Integer id;
 
     @Column(name = "_DATE")
-    /*@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yy-dd-mm HH:MM")*/
     private Date date;
 
     @Column(name = "DURATION")
@@ -55,12 +53,6 @@ public class Activity {
         String stringDate = date.toString();
         SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy  HH:mm", Locale.getDefault());
         String sdt= sdf.format(date);
-       /* Date dateParse = null;
-        try {
-            dateParse = new SimpleDateFormat("dd MM yyyy HH:mm").parse(stringDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
         return sdt;
     }
 

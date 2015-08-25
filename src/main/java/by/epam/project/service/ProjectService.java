@@ -10,21 +10,21 @@ import java.util.List;
 
 public interface ProjectService {
 
-    public void addProject(Project project);
+    void addProject(Project project);
 
-    public List<Member> listMember(Integer id);
+    List<Member> listMember(Integer id);
 
-    public List<Project> listProject();
+    List<Project> listProject();
 
-    public List<Employee> listEmployee();
+    List<Employee> listEmployee();
 
-    public List<Role> listRole();
+    List<Role> listRole();
 
-    public void addMember(Integer projId, Integer emplId, Integer roleId);
+    void addMember(Integer projId, Integer emplId, Integer roleId);
 
-    public List<Project> getProjects(String login);
+    List<Project> getProjects(String login);
 
-    public Project getProject(Integer id);
+    Project getProject(Integer id);
 
 
 }

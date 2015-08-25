@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface TaskService {
 
-    public Task getTask(Integer id);
+    Task getTask(Integer id);
 
-    public List<Task> getTaskList(String login);
+    List<Task> getTaskList(String login);
 
-    public void updateTask(Integer taskId, Integer statusId);
+    void updateTask(Integer taskId, Integer statusId);
 
-    public List<Activity> getTaskActivity (Integer id);
+    List<Activity> getTaskActivity (Integer id);
 }

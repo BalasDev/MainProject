@@ -8,7 +8,7 @@ import by.epam.project.domain.Task;
 import java.util.List;
 
 public interface AttachmentService {
-    public Attachment getAttachment(Integer id);
-    public void addAttachment(String name, String size, String description, Project project, Task task);
-    public List<Attachment> listAttachTask (Integer id);
+    Attachment getAttachment(Integer id);
+    void addAttachment(String name, String size, String description, Project project, Task task);
+    List<Attachment> listAttachTask (Integer id);
 }

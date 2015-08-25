@@ -58,11 +58,6 @@ public class ProjectDAOImpl implements ProjectDAO {
         member.setRole(role);
 
         sessionFactory.getCurrentSession().save(member);
-        /*Query query = sessionFactory.getCurrentSession().
-        createQuery("insert into Member(PROJECTID,EMPLOYEEID,ROLEID) values(:projId,:emplId,:roleId)");
-        query.setParameter("projId", projId);
-        query.setParameter("emplId", emplId);
-        query.setParameter("roleId", roleId);*/
     }
 
     public List<Project> getProjects(String login) {

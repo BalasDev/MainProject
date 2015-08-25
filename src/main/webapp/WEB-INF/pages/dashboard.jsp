@@ -6,7 +6,6 @@
 <link href="webres/css/style.css" rel="stylesheet">
 
 
-
 <jsp:include page="header.jsp"/>
 <script>
     $(document).ready(function () {
@@ -17,11 +16,11 @@
                         $.each(activity, function (key, value) {
                             var d = new Date(value.date);
                             /*formattedDate.format();
-                            alert(formattedDate);*/
+                             alert(formattedDate);*/
                             $("#tblActiv").append('<tr><td>' + value.lastName + ' ' + value.firstName +
                                     ' project:' + value.project + ' task:' + value.task + '<br>' + value.comment +
                                     '<br><div class="text-right text-danger" style="font-size: x-small">' +
-                                    /*$.datepicker.formatDate('dd mm yy ',d)*/ value.date
+                                        /*$.datepicker.formatDate('dd mm yy ',d)*/ value.date
                                     +
                                     '</div></td></tr>');
                         });
@@ -66,7 +65,7 @@
 
                 </div>
 
-                <button class="btn btn-default btn-block" id="btnShow" style=" margin-top: 55px;" >Show more</button>
+                <button class="btn btn-default btn-block" id="btnShow" style=" margin-top: 55px;">Show more</button>
 
             </div>
         </div>
@@ -88,7 +87,7 @@
                         <thead>
 
                         <tr>
-                             <th>Task</th>
+                            <th>Task</th>
                         </tr>
                         </thead>
 
@@ -96,9 +95,9 @@
                         <c:forEach items="${listTask}" var="task">
                             <tr>
                                 <td>
-                                    <div> <%--style="cursor: pointer"--%>
-                                    <a href="<c:url value="/opentask/${task.id}"/>">${task.description}</a>
-                                        <%--onclick="location.href='<%=request.getContextPath()%>/opentask/${task.id}'">${task.description}--%></div>
+                                    <div>
+                                        <a href="<c:url value="/opentask/${task.id}"/>">${task.description}</a>
+                                    </div>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -112,4 +111,5 @@
     </div>
 
 
-</div><jsp:include page="footer.jsp"/>
+</div>
+<jsp:include page="footer.jsp"/>

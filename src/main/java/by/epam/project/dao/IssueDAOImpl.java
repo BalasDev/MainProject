@@ -31,7 +31,6 @@ public class IssueDAOImpl implements IssueDAO {
         query.setParameter("role2","team lead");
         query.setParameter("role3","project manager");
 
-        //change manadger to Manager
         projects = query.list();
         return projects;
     }
@@ -77,7 +76,5 @@ public class IssueDAOImpl implements IssueDAO {
 
         Serializable Ass = sessionFactory.getCurrentSession().save(assigment);
 
-
-     //   Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class,memId);
     }
 }

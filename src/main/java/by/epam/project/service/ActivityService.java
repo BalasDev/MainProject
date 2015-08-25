@@ -7,7 +7,7 @@ import by.epam.project.domain.Member;
 import java.util.List;
 
 public interface ActivityService {
-    public Activity getActivity(Integer id);
-    public List<Activity> listActivity();
-    public void addActivity(Integer duration, String comment, Member member, Assigment assignment);
+    Activity getActivity(Integer id);
+    List<Activity> listActivity();
+    void addActivity(Integer duration, String comment, Member member, Assigment assignment);
 }

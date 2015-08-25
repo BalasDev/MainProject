@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface PositionDAO {
 
-    public List<Position> listPosition();
+    List<Position> listPosition();
 
 }

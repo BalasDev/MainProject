@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface IssueDAO {
 
-    public List<Project> getProject(String login);
+    List<Project> getProject(String login);
 
-    public List<Employee>getEmployee(Integer id);
+    List<Employee>getEmployee(Integer id);
 
-    public void saveIssue(Integer prId, Integer memId, String desc, String currentUser);
+    void saveIssue(Integer prId, Integer memId, String desc, String currentUser);
 }
